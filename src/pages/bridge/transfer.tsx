@@ -580,7 +580,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
           '115792089237316195423570985008687907853269984665640564039457584007913129639935'
         )
         .send({
-          from: account, //type: [1, 4].includes(selectedChainInfo.srcChainInfo.chainId) ? '0x2' : '0x0',
+          from: account,
         })
         .once('sending', () => {
           dispatch(updateBridgeLoading({ visible: true, status: 0 }))
