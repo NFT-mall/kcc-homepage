@@ -60,7 +60,7 @@ export const LanguageButton = styled.div`
   align-items: center;
   background: #212124;
   &:hover {
-    bacground: transparent !important;
+    background: transparent !important;
   }
   @media (max-width: 768px) {
     background: none;

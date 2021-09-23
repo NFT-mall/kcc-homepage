@@ -111,7 +111,6 @@
   "Service is not available": "Service temporarily unavailable",
   "Gateway timeout": "Gateway timeout",
   "HTTP version is not supported": "HTTP version is not supported",
-  "Unknown error": "Unknown error",
   "Request error": "Request error",
   "Unsupported Network": "Unsupported Network",
   "Unsupported Chain Id Error. Check your chain Id.": "Unsupported Chain Id Error. Check your chain Id.",
