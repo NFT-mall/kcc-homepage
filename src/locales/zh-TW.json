@@ -14,7 +14,7 @@
   "Dapp": "Dapp",
   "Submit a Dapp": "提交一個Dapp",
   "Submit your dapp to the community": "提交您的Dapp到社區中",
-  "Defi Box": "Defi Box",
+  "Defi Box": "Discover KCC",
   "Wallet": "錢包",
   "Metamask": "Metamask",
   "ImToken": "ImToken",
@@ -204,5 +204,6 @@
   "Logout": "退出",
   "If you are using KCC-Bridge for the first time, you can": "如果您是第一次使用KCC-Bridge，可以快速",
   "Check the guide": "查看使用教程",
-  "Search": "搜索"
+  "Search": "搜索",
+  "Discover KCC Desc": "所有基於KCC鏈上的項目"
 }

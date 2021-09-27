@@ -17,6 +17,7 @@ export const KCC = {
   DISCLAIMER: 'id=disclaimers',
   FAQ: 'id=faq',
   GRANTS: 'https://github.com/kcc-community/kcc-grants',
+  DISCOVER: 'https://discover.kcc.io',
   CONTACT_LIST: [
     {
       app: 'Twitter',

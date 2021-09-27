@@ -14,7 +14,7 @@
   "Dapp": "DApp",
   "Submit a Dapp": "Eine DApp einreichen",
   "Submit your dapp to the community": "Eine DApp zur Community einreichen",
-  "Defi Box": "DeFi Box",
+  "Defi Box": "Discover KCC",
   "Wallet": "Wallet",
   "Metamask": "MetaMask",
   "ImToken": "ImToken",
@@ -205,5 +205,6 @@
   "Logout": "Ausloggen",
   "If you are using KCC-Bridge for the first time, you can": "Wenn du die KCC Brücke zum ersten mal benützt, dann kannst du",
   "Check the guide": "die Anleitung anschauen",
-  "Search": "Suche"
+  "Search": "Suche",
+  "Discover KCC Desc": "All projects building on KCC"
 }
