@@ -88,12 +88,12 @@ export const MENU_LIST = [
             route: KCC.DISCOVER,
             icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
-          {
-            title: 'Submit a Dapp',
-            subTitle: 'Submit your dapp to the community',
-            route: KCC.DAPP_URL,
-            icon: require('../assets/images/Icons/menu/submit@2x.png').default,
-          },
+          // {
+          //   title: 'Submit a Dapp',
+          //   subTitle: 'Submit your dapp to the community',
+          //   route: KCC.DAPP_URL,
+          //   icon: require('../assets/images/Icons/menu/submit@2x.png').default,
+          // },
         ],
       },
       {

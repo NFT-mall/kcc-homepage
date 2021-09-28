@@ -648,7 +648,12 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
         </BaseWrap>
 
         {/* MileStone */}
-        <BaseWrap style={{ padding: isMobile || isTablet ? '47px 24px 0px 24px' : '88px 0 0px 0' }}>
+        <BaseWrap
+          style={{
+            padding: isMobile || isTablet ? '47px 24px 0px 24px' : '88px 0 0px 0',
+            width: isMobile ? 'auto' : '1400px',
+          }}
+        >
           <ColumnCenter>
             <TitleText>{t('Our Milestones')}</TitleText>
             <ParagraphText>{t('Milestone Subtitlle')}</ParagraphText>
@@ -669,14 +674,13 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                 />
               </BrowserView>
               <MobileView>
-                {MilestoneList}
                 <Row
                   style={{
                     position: 'absolute',
                     transform: 'rotate(90deg)',
                     transformOrigin: 'top left',
                     zIndex: 3,
-                    width: '480px',
+                    width: '540px',
                     left: '40px',
                     top: '0px',
                   }}
