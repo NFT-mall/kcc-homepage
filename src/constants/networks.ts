@@ -39,6 +39,19 @@ export const MAIN_NETWORKS = {
     bridgeCoreAddress: '0xe61dd9cA7364225aFBFB79e15AD33864424e6aE4',
     standard: 'KRC20',
   },
+  56: {
+    name: 'BSC Mainnet',
+    fullName: 'BSC Mainnet Network',
+    abbr: 'BSC',
+    rpc: 'https://bsc-dataseed1.ninicoin.io',
+    chain_id: 56,
+    decimals: 18,
+    symbol: 'BNB',
+    browser: 'https://bscscan.com',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-56.svg',
+    bridgeCoreAddress: '0xe61dd9cA7364225aFBFB79e15AD33864424e6aE4',
+    standard: 'BEP20',
+  },
 }
 
 export const TEST_NETWORKS = {
@@ -68,6 +81,19 @@ export const TEST_NETWORKS = {
     logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-321.png',
     bridgeCoreAddress: '0xA976440272c709C69970A40cb9249BfAa4759A7A',
     standard: 'KRC20',
+  },
+  97: {
+    name: 'BSC Testnet',
+    fullName: 'BSC Testnet Network',
+    abbr: 'BSC',
+    rpc: 'https://data-seed-prebsc-1-s1.binance.org:8545',
+    chain_id: 97,
+    decimals: 18,
+    symbol: 'BNB',
+    browser: 'https://testnet-explorer.binance.org',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-56.svg',
+    bridgeCoreAddress: '0x0734ce7Df4aEa88ce7fA6AD88bd2EB8d933ee319',
+    standard: 'BEP20',
   },
 }
 
