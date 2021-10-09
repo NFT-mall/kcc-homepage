@@ -14,7 +14,7 @@
   "Dapp": "Dapp",
   "Submit a Dapp": "Enviar una DApp",
   "Submit your dapp to the community": "Enviar tu DApp a la comunidad",
-  "Defi Box": "Caja DeFi",
+  "Defi Box": "Discover KCC",
   "Wallet": "Wallet",
   "Metamask": "MetaMask",
   "ImToken": "ImToken",
@@ -97,5 +97,6 @@
   "View Event": "Aprende más",
   "The Event Is Over": "Terminado",
   "KCC Ambassador Program": "Programa de embajadores de KCC",
-  "Risk Statement": "Declaración de riesgo"
+  "Risk Statement": "Declaración de riesgo",
+  "Discover KCC Desc": "All projects building on KCC"
 }

@@ -425,7 +425,12 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
             <>
               <HistoryListWrap>{list}</HistoryListWrap>
               <ColumnCenter style={{ width: '100%' }}>
-                <Pagination current={currentPage} total={totalPage} onChange={pageNumberChange} />
+                <Pagination
+                  current={currentPage}
+                  total={totalPage}
+                  onChange={pageNumberChange}
+                  showSizeChanger={false}
+                />
               </ColumnCenter>
             </>
           ) : (

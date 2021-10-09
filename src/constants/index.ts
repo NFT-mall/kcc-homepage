@@ -17,6 +17,7 @@ export const KCC = {
   DISCLAIMER: 'id=disclaimers',
   FAQ: 'id=faq',
   GRANTS: 'https://github.com/kcc-community/kcc-grants',
+  DISCOVER: 'https://discover.kcc.io',
   CONTACT_LIST: [
     {
       app: 'Twitter',
@@ -62,6 +63,11 @@ export const KCC = {
     {
       date: '2021-07-16',
       title: 'KCC Bridge Launched',
+      icon: require('../assets/images/home/milestone-icon@2x.png').default,
+    },
+    {
+      date: '2021-09-27',
+      title: 'Discover KCC Launched',
       icon: require('../assets/images/home/milestone-icon@2x.png').default,
     },
     {

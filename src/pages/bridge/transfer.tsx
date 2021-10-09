@@ -18,7 +18,6 @@ import { updateCurrentCurrency, updateCurrentPairId } from '../../state/bridge/a
 import { checkAddress, getApproveStatus, getNetworkInfo, getPairInfo, getSwapFee, web3Utils } from '../../utils'
 import { getErc20Contract } from '../../utils/contract'
 import { updateBridgeLoading } from '../../state/application/actions'
-import { getNetWorkConnect } from '../../connectors'
 import { useHistory } from 'react-router-dom'
 import {
   useTokenList,
@@ -38,6 +37,7 @@ import { findPairBySrcChain } from '../../utils'
 import { formatCurrency } from '../../utils/format'
 
 import CommonText from '../../components/Text'
+import { getNetWorkConnect } from '../../connectors/index'
 
 export enum ListType {
   'WHITE',
@@ -287,7 +287,8 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
       if (!selectedPairInfo) return
       setSwapFeeLoading(() => true)
       try {
-        const fee = await getSwapFee(selectedPairInfo, library, isSelectedNetwork)
+        const lib = getNetWorkConnect(selectedPairInfo.srcChainInfo.chainId as any)
+        const fee = await getSwapFee(selectedPairInfo, lib)
         setSwapFee(() => new BN(fee).toNumber().toString())
         setCheckList((list) => {
           return {
@@ -579,7 +580,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
           '115792089237316195423570985008687907853269984665640564039457584007913129639935'
         )
         .send({
-          from: account, //type: [1, 4].includes(selectedChainInfo.srcChainInfo.chainId) ? '0x2' : '0x0',
+          from: account,
         })
         .once('sending', () => {
           dispatch(updateBridgeLoading({ visible: true, status: 0 }))
@@ -723,7 +724,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
                     {formatCurrency(
                       new BN(available)
                         .div(Math.pow(10, selectedPairInfo?.srcChainInfo.decimals as any))
-                        .toFixed(6)
+                        .toFixed(6, 1)
                         .toString()
                     ) ?? 0}
                     &nbsp;
