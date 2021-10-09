@@ -90,7 +90,7 @@ export const TEST_NETWORKS = {
     chain_id: 97,
     decimals: 18,
     symbol: 'BNB',
-    browser: 'https://testnet-explorer.binance.org',
+    browser: 'https://testnet.bscscan.com',
     logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-97.png',
     bridgeCoreAddress: '0x0734ce7Df4aEa88ce7fA6AD88bd2EB8d933ee319',
     standard: 'BEP20',
