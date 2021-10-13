@@ -264,7 +264,9 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
 
   const [loading, setLoading] = React.useState<boolean>(false)
   const [totalPage, setTotalPage] = React.useState<number>(0)
+  const [total, setTotal] = React.useState<number>(0)
   const [currentPage, setCurrentPage] = React.useState<number>(1)
+
   const [historyList, setHistoryList] = React.useState<any[]>([])
 
   const [unconfirmOrderList, setUnconfirmOrderList] = useLocalStorageState(UnconfirmOrderKey)
@@ -299,7 +301,7 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
       if (data) {
         //  need merge local un-confirm list
         data.list?.map((item: any) => {
-          item.createTime = moment(item.createTime).format('YYYY-MM-DD HH:MM:SS')
+          item.createTime = moment(item.createTime).format('YYYY-MM-DD HH:mm:ss')
         })
         const unconfirm = getUnconfirmedFromLocal(data.list, JSON.parse(unconfirmOrderList))
         setUnconfirmOrderList(JSON.stringify(unconfirm))
@@ -313,6 +315,9 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
           setHistoryList(() => [...data.list])
         }
         setTotalPage(() => data.total)
+
+        setTotal(() => data.total + unconfirm.length)
+        console.log(data.total + unconfirm.length)
       }
     } finally {
       setLoading(() => false)
@@ -376,7 +381,7 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
       transaction.srcFee = new BN(transaction.fee).div(Math.pow(10, srcNetworkInfo.decimals)).toString()
       transaction.status = `Pending`
       transaction.srcCurrency = transaction.currency.symbol
-      transaction.createTime = moment(transaction.saveTime).format('YYYY-MM-DD HH:MM:SS')
+      transaction.createTime = moment(transaction.saveTime).format('YYYY-MM-DD HH:mm:ss')
     }
 
     return (
@@ -432,7 +437,8 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
               <ColumnCenter style={{ width: '100%' }}>
                 <Pagination
                   current={currentPage}
-                  total={totalPage}
+                  total={total}
+                  pageSize={pageSize}
                   onChange={pageNumberChange}
                   showSizeChanger={false}
                 />
