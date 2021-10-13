@@ -150,10 +150,10 @@ const ChainCard: React.FunctionComponent<ChainCardProps> = ({
   const getDisabledStatus = (id: number) => {
     console.log('availableChainIds', availableChainIds)
     console.log('id', id)
-    /*    if (id === networkId) {
+    if (id === networkId) {
       // can't choose current chain
-      return true
-    } */
+      return false
+    }
     if (id === oppsiteId) {
       // can't choose opposite chain
       return true
