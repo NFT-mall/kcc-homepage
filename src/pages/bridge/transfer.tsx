@@ -52,6 +52,7 @@ export interface TransferOrder {
   srcId: number
   distId: number
   amount: string
+  receiveAmount: string
   fee: string
   from: string
   receiver: string
@@ -235,7 +236,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
 
   const dispatch = useDispatch()
   const tokenList = useTokenList()
-  const pairList = usePariList()
+
   const currentPairId = useCurrentPairId()
 
   const setSelectedCurrency = (currency: Currency) => {
@@ -548,6 +549,17 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
 
   const generateOrder = () => {
     if (!selectedPairInfo) return
+
+    // totalAmount Wei
+    const amount1 = new BN(amount).multipliedBy(Math.pow(10, selectedPairInfo?.srcChainInfo.decimals)).toString(10)
+
+    let receiveAmount = ''
+    if (selectedPairInfo?.srcChainInfo.tag === 0) {
+      receiveAmount = new BN(amount1).minus(swapFee).toString(10)
+    } else {
+      receiveAmount = amount1
+    }
+
     const newOrder = {
       pairId: currentPairId,
       srcId: srcId,
@@ -556,6 +568,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
       receiver: receiveAddress,
       fee: swapFee,
       amount: new BN(amount).multipliedBy(Math.pow(10, selectedPairInfo?.srcChainInfo.decimals)).toString(10),
+      receiveAmount: receiveAmount,
       timestamp: '',
       currency: currency,
     }

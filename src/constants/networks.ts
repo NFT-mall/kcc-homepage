@@ -85,7 +85,7 @@ export const TEST_NETWORKS = {
   97: {
     name: 'BSC Testnet',
     fullName: 'BSC Testnet Network',
-    abbr: 'BSC',
+    abbr: 'BSC-TEST',
     rpc: 'https://data-seed-prebsc-1-s1.binance.org:8545',
     chain_id: 97,
     decimals: 18,

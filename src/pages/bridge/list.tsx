@@ -261,12 +261,10 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
   const { account } = useWeb3React()
 
   const query = useQuery()
-  const page = query.get('page') as string
-  const current: number = page ? parseInt(page as any) : (1 as number)
 
   const [loading, setLoading] = React.useState<boolean>(false)
   const [totalPage, setTotalPage] = React.useState<number>(0)
-  const [currentPage, setCurrentPage] = React.useState<number>(current)
+  const [currentPage, setCurrentPage] = React.useState<number>(1)
   const [historyList, setHistoryList] = React.useState<any[]>([])
 
   const [unconfirmOrderList, setUnconfirmOrderList] = useLocalStorageState(UnconfirmOrderKey)
@@ -285,6 +283,12 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
   }
 
   const pageSize = 4
+
+  React.useEffect(() => {
+    const page = query.get('page') as string
+    const current: number = page ? parseInt(page as any) : (1 as number)
+    setCurrentPage(current)
+  }, [])
 
   const getHistoryList = async (needLoading?: boolean) => {
     if (!account) return
@@ -334,6 +338,7 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
   }, 1000 * 10)
 
   const pageNumberChange = (pageNumber: number) => {
+    window.history.pushState(null, '', `${window.location.href.split('?')[0]}?page=${pageNumber}`)
     setCurrentPage(() => pageNumber)
   }
 
@@ -353,7 +358,7 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
   }
 
   const list = historyList.map((transaction, index) => {
-    const no = index + 1
+    const no = (currentPage - 1) * 4 + index + 1
 
     let selectedPairInfo, srcNetworkInfo, distNetworkInfo
 
@@ -365,7 +370,7 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
       selectedPairInfo = getPairInfo(transaction.pairId) as PairInfo
       srcNetworkInfo = getNetworkInfo(transaction.srcId)
       distNetworkInfo = getNetworkInfo(transaction.distId)
-      transaction.dstAmount = new BN(transaction.amount)
+      transaction.dstAmount = new BN(transaction.receiveAmount)
         .div(Math.pow(10, selectedPairInfo.srcChainInfo.decimals))
         .toString()
       transaction.srcFee = new BN(transaction.fee).div(Math.pow(10, srcNetworkInfo.decimals)).toString()
