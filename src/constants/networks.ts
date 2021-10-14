@@ -49,7 +49,7 @@ export const MAIN_NETWORKS = {
     symbol: 'BNB',
     browser: 'https://bscscan.com',
     logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-97.png',
-    bridgeCoreAddress: '0xe61dd9cA7364225aFBFB79e15AD33864424e6aE4',
+    bridgeCoreAddress: '0x76D1E324757d7E6765df1EcFD6Ba6F20Ca04BB93',
     standard: 'BEP20',
   },
 }
