@@ -100,18 +100,28 @@ const ChainBridge: React.FunctionComponent<ChainBridgeProps> = (props) => {
     }
   }
 
+  // need to check chain,if not kcc,can't
   const cuclDistChainIds = React.useMemo(() => {
-    const ids: number[] = []
-    for (let i = 0; i < pairList.length; i++) {
+    // remove src chain id from distChainIds
+    const ids: number[] = [...distChainIds]
+    /* for (let i = 0; i < pairList.length; i++) {
       const chain = pairList[i]
       const srcChainInfo = chain.srcChainInfo
       const distChainInfo = chain.dstChainInfo
       if (srcChainInfo.chainId === props.srcId && !ids.includes(distChainInfo.chainId)) {
         ids.push(distChainInfo.chainId)
       }
+    } */
+    if (props.srcId !== 322 && props.srcId !== 321) {
+      return [parseInt(process.env.REACT_APP_CHAIN_ID as any) ?? 321]
+    }
+
+    const index = ids.indexOf(props.srcId)
+    if (index !== -1) {
+      ids.splice(index, 1)
     }
     return ids
-  }, [props.srcId])
+  }, [props.srcId, distChainIds])
 
   return (
     <ChainBridgeWrap>
@@ -120,7 +130,6 @@ const ChainBridge: React.FunctionComponent<ChainBridgeProps> = (props) => {
         <ChainCard
           dropdownShow={fromDropdownShow}
           setDropdownShow={setFromDropdownShow}
-          setOppsiteDropdownShow={setToDropdownShow}
           direction={ChainDirection.From}
           availableChainIds={srcChainIds}
           networkId={props.srcId}
@@ -150,7 +159,6 @@ const ChainBridge: React.FunctionComponent<ChainBridgeProps> = (props) => {
         <ChainCard
           dropdownShow={toDropdownShow}
           setDropdownShow={setToDropdownShow}
-          setOppsiteDropdownShow={setFromDropdownShow}
           direction={ChainDirection.To}
           networkId={props.distId}
           availableChainIds={cuclDistChainIds}

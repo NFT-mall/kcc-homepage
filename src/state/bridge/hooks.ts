@@ -68,6 +68,7 @@ export function useTokenSupporChain() {
       return { srcChainIds: [], distChainIds: [] }
     }
     const chainList = state.bridge.pairList ?? []
+
     for (let i = 0; i < chainList.length; i++) {
       const chain = chainList[i]
       if (chain.openStatus === false) {
@@ -76,7 +77,7 @@ export function useTokenSupporChain() {
       const srcChainInfo = chain.srcChainInfo
       const distChainInfo = chain.dstChainInfo
       if (
-        srcChainInfo.currency === state.bridge.currentCurrency?.symbol &&
+        srcChainInfo.currency === state.bridge.currentCurrency?.symbol && // chain
         !srcChainIds.includes(srcChainInfo.chainId)
       ) {
         srcChainIds.push(srcChainInfo.chainId)
@@ -88,6 +89,9 @@ export function useTokenSupporChain() {
         distChainIds.push(distChainInfo.chainId)
       }
     }
+
+    console.log('srcChainIds', srcChainIds)
+    console.log('distChainIds', distChainIds)
     return { srcChainIds, distChainIds }
   })
 }
