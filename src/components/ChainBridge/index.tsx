@@ -100,6 +100,7 @@ const ChainBridge: React.FunctionComponent<ChainBridgeProps> = (props) => {
     }
   }
 
+  // need to check chain,if not kcc,can't
   const cuclDistChainIds = React.useMemo(() => {
     // remove src chain id from distChainIds
     const ids: number[] = [...distChainIds]
@@ -111,6 +112,9 @@ const ChainBridge: React.FunctionComponent<ChainBridgeProps> = (props) => {
         ids.push(distChainInfo.chainId)
       }
     } */
+    if (props.srcId !== 322 || props.srcId !== 321) {
+      return [parseInt(process.env.REACT_APP_CHAIN_ID as any) ?? 321]
+    }
     const index = ids.indexOf(props.srcId)
     if (index !== -1) {
       ids.splice(index, 1)
