@@ -239,6 +239,8 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
 
   const currentPairId = useCurrentPairId()
 
+  const currentCurrency = useCurrentCurrency()
+
   const setSelectedCurrency = (currency: Currency) => {
     dispatch(updateCurrentCurrency({ currency: currency }))
   }
@@ -794,7 +796,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
             <Row style={{ width: '100%' }}>
               <ReceiveText style={{ width: 'auto' }}>{t(`You will receive`)}&nbsp;</ReceiveText>
               <ReceiveAmountText>
-                {` ≈ ${Boolean(amount) ? amount : 0} ${selectedNetworkInfo?.symbol.toUpperCase()}`}
+                {` ≈ ${Boolean(amount) ? amount : 0} ${currentCurrency?.symbol.toUpperCase()}`}
               </ReceiveAmountText>
             </Row>
           )}
