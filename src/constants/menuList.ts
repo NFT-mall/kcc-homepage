@@ -88,6 +88,12 @@ export const MENU_LIST = [
             route: KCC.DISCOVER,
             icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
+          {
+            title: 'GoDao',
+            subTitle: 'Dao Desc',
+            route: KCC.DAO,
+            icon: require('../assets/images/Icons/menu/dao@2x.png').default,
+          },
           // {
           //   title: 'Submit a Dapp',
           //   subTitle: 'Submit your dapp to the community',
