@@ -139,7 +139,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
     history.push('/bridge/transfer')
   }
 
-  const receiveAmount = React.useMemo(() => {
+  /*  const receiveAmount = React.useMemo(() => {
     if (!selectedChainInfo?.srcChainInfo) return
     let receiveAmount = ''
     if (selectedChainInfo?.srcChainInfo.tag === 0) {
@@ -149,7 +149,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
       receiveAmount = new BN(order.amount).toString(10)
       return new BN(receiveAmount).div(Math.pow(10, selectedChainInfo?.srcChainInfo.decimals)).toString(10)
     }
-  }, [order.fee, order])
+  }, [order.fee, order]) */
 
   const saveUnconfirmOrder = (order: TransferOrder, hash: string) => {
     setUnconfirmOrderList(
@@ -169,8 +169,10 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
   /**
    * @description  transfer native token
    */
-  const nativeTransfer = (contract: any, selectedChainInfo: PairInfo) => {
+  const nativeTransfer = async (contract: any, selectedChainInfo: PairInfo) => {
     const amount = new BN(order.amount).toString(10)
+    /*     const gasPrice = await library.getGasPrice()
+    console.log('gasPrice', gasPrice) */
     contract.methods
       .depositNative(order.receiver, selectedChainInfo.dstChainInfo.chain.toLowerCase())
       .send({
@@ -296,7 +298,9 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
           />
           <ConfirmItem
             title={t('Amount received')}
-            content={`${receiveAmount} ${order?.currency.symbol.toUpperCase()}`}
+            content={`${new BN(order.receiveAmount).div(
+              10 ** order?.currency.decimals
+            )} ${order?.currency.symbol.toUpperCase()}`}
           />
           <ConfirmItem title={t('Transfer fee')}>
             <FeeAmmount>

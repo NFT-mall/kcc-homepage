@@ -14,7 +14,6 @@ import { updateCurrentPairId } from '../../state/bridge/actions'
 interface ChainCardProps {
   dropdownShow?: boolean
   setDropdownShow?: any
-  setOppsiteDropdownShow?: any
   networkId: ChainId
   direction: ChainDirection
   type: ChainBridgeType
@@ -141,7 +140,6 @@ const ChainCard: React.FunctionComponent<ChainCardProps> = ({
   currency,
   setDropdownShow,
   dropdownShow,
-  setOppsiteDropdownShow,
 }) => {
   const network = React.useMemo(() => {
     return getNetworkInfo(networkId)
@@ -150,16 +148,22 @@ const ChainCard: React.FunctionComponent<ChainCardProps> = ({
   const dispatch = useDispatch()
 
   const getDisabledStatus = (id: number) => {
+    console.log('availableChainIds', availableChainIds)
+    console.log('id', id)
+
     if (id === networkId) {
-      return true
+      // can't choose current chain
+      return false
     }
     if (id === oppsiteId) {
+      // can't choose opposite chain
       return true
     }
-    if (!availableChainIds?.includes(id)) {
+    if (availableChainIds?.includes(id)) {
+      return false
+    } else {
       return true
     }
-    return false
   }
 
   const clickNetwork = (id: number) => {
@@ -186,7 +190,11 @@ const ChainCard: React.FunctionComponent<ChainCardProps> = ({
   const menu = <DropdownWrap onMouseLeave={() => setDropdownShow(() => false)}>{menuList}</DropdownWrap>
 
   return (
-    <ChainCardWrap>
+    <ChainCardWrap
+      onMouseLeave={() => {
+        setDropdownShow(() => false)
+      }}
+    >
       {networkId === 0 ? (
         <FrownOutlined
           style={{ width: '40px', height: '40px', fontSize: '40px', color: '#000', borderRadius: '50%' }}
@@ -203,7 +211,6 @@ const ChainCard: React.FunctionComponent<ChainCardProps> = ({
               show={dropdownShow ?? false}
               src={require('../../assets/images/bridge/down.png').default}
               onClick={() => {
-                setOppsiteDropdownShow(false)
                 setDropdownShow(() => true)
               }}
             />

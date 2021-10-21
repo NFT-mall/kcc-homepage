@@ -109,7 +109,7 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
       if (!pairInfo) return
       if (pairInfo.srcChainInfo.tag !== 0) {
         setMaxAvailableBalance(() =>
-          new BN(available).div(Math.pow(10, pairInfo.srcChainInfo.decimals)).toFixed(decimalsLimit)
+          new BN(available).div(Math.pow(10, pairInfo.srcChainInfo.decimals)).toFixed(decimalsLimit, 1)
         )
       } else {
         const connector = getNetWorkConnect(pairInfo.srcChainInfo.chainId) as any
@@ -120,7 +120,7 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
         let max = new BN(available)
           .minus(operateFee)
           .div(Math.pow(10, pairInfo.srcChainInfo.decimals))
-          .toFixed(decimalsLimit)
+          .toFixed(decimalsLimit, 1)
         if (new BN(max).lt(0)) {
           max = '0'
         }
@@ -288,7 +288,7 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
   ])
 
   const keyPress = (e: any) => {
-    const validKeys = '0,1,2,3,4,5,6,7,9,.'.split(',')
+    const validKeys = '0,1,2,3,4,5,6,7,8,9,.'.split(',')
     if (!validKeys.includes(e.key) || (e.key === '.' && amount.indexOf('.') !== -1)) {
       e.preventDefault()
     }

@@ -14,7 +14,7 @@
   "Dapp": "Dapp",
   "Submit a Dapp": "Enviar una DApp",
   "Submit your dapp to the community": "Enviar tu DApp a la comunidad",
-  "Defi Box": "Caja DeFi",
+  "Defi Box": "Discover KCC",
   "Wallet": "Wallet",
   "Metamask": "MetaMask",
   "ImToken": "ImToken",
@@ -22,6 +22,7 @@
   "More Wallet": "Mas",
   "Visit and link to metamask": "Visita MetaMask",
   "Visit and link to ImToken": "Visita ImToken",
+  "Visit and link to Shield Protocol": "Visita Shield Protocol",
   "Explorer": "Explorador",
   "View information on the KCC public chain": "Explora la información en KCC ",
   "Community": "Comunidad",
@@ -96,5 +97,7 @@
   "View Event": "Aprende más",
   "The Event Is Over": "Terminado",
   "KCC Ambassador Program": "Programa de embajadores de KCC",
-  "Risk Statement": "Declaración de riesgo"
+  "Risk Statement": "Declaración de riesgo",
+  "Discover KCC Desc": "All projects building on KCC",
+  "Dao Desc": "GoDao let every member of the KCS community can participate in KCC decision-making"
 }

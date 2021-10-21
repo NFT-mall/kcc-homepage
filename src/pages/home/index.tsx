@@ -18,6 +18,7 @@ import { CenterRow } from '../../components/Row/index'
 import { theme } from '../../constants/theme'
 import DotComponent from '../../components/Dot/index'
 import { useResponsive } from '../../utils/responsive'
+import MilestoneEventList from './components/Milestone'
 
 export interface HomePageProps {}
 
@@ -276,7 +277,7 @@ const IntroduceCoverImageWrap = styled.img`
   position: absolute;
   top: 0;
   width: 100%;
-  heigth: 50px !important;
+  height: 50px !important;
 `
 
 const IntroduceCover1 = styled.img`
@@ -327,8 +328,8 @@ const MailWrap = styled(BaseWrap)`
 `
 const ProgressWrap = styled.div`
   position: absolute;
-  width:100%:
-  height:20px;
+  width: 100%;
+  height: 20px;
 `
 
 const TitleLeftLine = styled.div`
@@ -440,9 +441,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
         message.success(t(`Thank you for subscribing`))
         setSubscribed(() => true)
       }
-
       setEmail('')
-    } catch (e) {
+    } catch (e: any) {
       message.error(t(`${e?.response?.data?.detail}`))
     } finally {
       setDisable(false)
@@ -648,7 +648,12 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
         </BaseWrap>
 
         {/* MileStone */}
-        <BaseWrap style={{ padding: isMobile || isTablet ? '47px 24px 0px 24px' : '88px 0 0px 0' }}>
+        <BaseWrap
+          style={{
+            padding: isMobile || isTablet ? '47px 24px 0px 24px' : '88px 0 0px 0',
+            width: isMobile ? 'auto' : '1400px',
+          }}
+        >
           <ColumnCenter>
             <TitleText>{t('Our Milestones')}</TitleText>
             <ParagraphText>{t('Milestone Subtitlle')}</ParagraphText>
@@ -675,7 +680,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                     transform: 'rotate(90deg)',
                     transformOrigin: 'top left',
                     zIndex: 3,
-                    width: '480px',
+                    width: '540px',
                     left: '40px',
                     top: '0px',
                   }}

@@ -53,10 +53,10 @@ const useAuth = () => {
           dispatch(updateErrorInfo({ hasError: true, errorInfo: 'Authorization Error' }))
         } else {
           notification.error({
-            message: i18next.t(`Unkown Error`),
+            message: i18next.t(`Unknown error`),
             description: i18next.t(`${error.message}`),
           })
-          dispatch(updateErrorInfo({ hasError: true, errorInfo: t(`Unkown Error`) }))
+          dispatch(updateErrorInfo({ hasError: true, errorInfo: t(`Unknown error`) }))
         }
       })
     } else {

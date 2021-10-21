@@ -18,7 +18,6 @@ import { updateCurrentCurrency, updateCurrentPairId } from '../../state/bridge/a
 import { checkAddress, getApproveStatus, getNetworkInfo, getPairInfo, getSwapFee, web3Utils } from '../../utils'
 import { getErc20Contract } from '../../utils/contract'
 import { updateBridgeLoading } from '../../state/application/actions'
-import { getNetWorkConnect } from '../../connectors'
 import { useHistory } from 'react-router-dom'
 import {
   useTokenList,
@@ -38,6 +37,7 @@ import { findPairBySrcChain } from '../../utils'
 import { formatCurrency } from '../../utils/format'
 
 import CommonText from '../../components/Text'
+import { getNetWorkConnect } from '../../connectors/index'
 
 export enum ListType {
   'WHITE',
@@ -52,6 +52,7 @@ export interface TransferOrder {
   srcId: number
   distId: number
   amount: string
+  receiveAmount: string
   fee: string
   from: string
   receiver: string
@@ -235,8 +236,10 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
 
   const dispatch = useDispatch()
   const tokenList = useTokenList()
-  const pairList = usePariList()
+
   const currentPairId = useCurrentPairId()
+
+  const currentCurrency = useCurrentCurrency()
 
   const setSelectedCurrency = (currency: Currency) => {
     dispatch(updateCurrentCurrency({ currency: currency }))
@@ -287,7 +290,8 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
       if (!selectedPairInfo) return
       setSwapFeeLoading(() => true)
       try {
-        const fee = await getSwapFee(selectedPairInfo, library, isSelectedNetwork)
+        const lib = getNetWorkConnect(selectedPairInfo.srcChainInfo.chainId as any)
+        const fee = await getSwapFee(selectedPairInfo, lib)
         setSwapFee(() => new BN(fee).toNumber().toString())
         setCheckList((list) => {
           return {
@@ -547,6 +551,17 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
 
   const generateOrder = () => {
     if (!selectedPairInfo) return
+
+    // totalAmount Wei
+    const amount1 = new BN(amount).multipliedBy(Math.pow(10, selectedPairInfo?.srcChainInfo.decimals)).toString(10)
+
+    let receiveAmount = ''
+    if (selectedPairInfo?.srcChainInfo.tag === 0) {
+      receiveAmount = new BN(amount1).minus(swapFee).toString(10)
+    } else {
+      receiveAmount = amount1
+    }
+
     const newOrder = {
       pairId: currentPairId,
       srcId: srcId,
@@ -555,6 +570,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
       receiver: receiveAddress,
       fee: swapFee,
       amount: new BN(amount).multipliedBy(Math.pow(10, selectedPairInfo?.srcChainInfo.decimals)).toString(10),
+      receiveAmount: receiveAmount,
       timestamp: '',
       currency: currency,
     }
@@ -578,7 +594,9 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
           network.bridgeCoreAddress,
           '115792089237316195423570985008687907853269984665640564039457584007913129639935'
         )
-        .send({ from: account })
+        .send({
+          from: account,
+        })
         .once('sending', () => {
           dispatch(updateBridgeLoading({ visible: true, status: 0 }))
         })
@@ -721,7 +739,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
                     {formatCurrency(
                       new BN(available)
                         .div(Math.pow(10, selectedPairInfo?.srcChainInfo.decimals as any))
-                        .toFixed(6)
+                        .toFixed(6, 1)
                         .toString()
                     ) ?? 0}
                     &nbsp;
@@ -778,7 +796,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
             <Row style={{ width: '100%' }}>
               <ReceiveText style={{ width: 'auto' }}>{t(`You will receive`)}&nbsp;</ReceiveText>
               <ReceiveAmountText>
-                {` ≈ ${Boolean(amount) ? amount : 0} ${selectedNetworkInfo?.symbol.toUpperCase()}`}
+                {` ≈ ${Boolean(amount) ? amount : 0} ${currentCurrency?.symbol.toUpperCase()}`}
               </ReceiveAmountText>
             </Row>
           )}
