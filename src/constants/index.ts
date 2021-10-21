@@ -68,7 +68,7 @@ export const KCC = {
     },
     {
       date: '2021-09-27',
-      title: 'Discover KCC Launched',
+      title: 'Discover Launched',
       icon: require('../assets/images/home/milestone-icon@2x.png').default,
     },
     {

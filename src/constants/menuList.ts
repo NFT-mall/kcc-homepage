@@ -83,8 +83,8 @@ export const MENU_LIST = [
             icon: require('../assets/images/Icons/menu/bridge.png').default,
           },
           {
-            title: 'Discover KCC',
-            subTitle: 'Discover KCC Desc',
+            title: 'Discover',
+            subTitle: 'Discover Desc',
             route: KCC.DISCOVER,
             icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
@@ -140,16 +140,16 @@ export const MENU_LIST = [
         icon: require('../assets/images/Icons/menu/activity@2x.png').default,
       },
       {
-        title: 'Grant Program',
-        subTitle: 'support for community development and research',
-        route: '/community/grants',
-        icon: require('../assets/images/Icons/menu/grant@2x.png').default,
-      },
-      {
         title: 'GoDao',
         subTitle: 'Dao Desc',
         route: KCC.DAO,
         icon: require('../assets/images/Icons/menu/dao@2x.png').default,
+      },
+      {
+        title: 'Grant Program',
+        subTitle: `support for community development and research`,
+        route: '/community/grants',
+        icon: require('../assets/images/Icons/menu/grant@2x.png').default,
       },
     ],
   },
