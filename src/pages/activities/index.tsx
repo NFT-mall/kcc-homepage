@@ -127,6 +127,29 @@ const ActivitiesPage: React.FunctionComponent<GrantsPageProps> = () => {
       url_ch: 'https://kccofficial.medium.com/kcc-ama-series-episode4-paprprintr-stablecoin-and-kcc-63ce6c7401ce',
       url_en: 'https://kccofficial.medium.com/kcc-ama-series-episode4-paprprintr-stablecoin-and-kcc-63ce6c7401ce',
     },
+    {
+      thumbnail_ch: require('../../assets/images/activity/pentonium-en.png').default,
+      thumbnail_en: require('../../assets/images/activity/pentonium-cn.png').default,
+      deadline: '2021/09/10 10:57:33',
+      url_ch: 'https://pentonium.medium.com/ama-with-kcc-recap-de308a6e29c5',
+      url_en: 'https://pentonium.medium.com/ama-with-kcc-recap-de308a6e29c5',
+    },
+    {
+      thumbnail_ch: require('../../assets/images/activity/padd-cn.png').default,
+      thumbnail_en: require('../../assets/images/activity/padd-en.png').default,
+      deadline: '2021/09/10 10:57:33',
+      url_ch:
+        'https://kccofficial.medium.com/kcc-ama-series-episode-5-padd-finance-next-generation-launchpad-and-kcc-d4f432719a74',
+      url_en:
+        'https://kccofficial.medium.com/kcc-ama-series-episode-5-padd-finance-next-generation-launchpad-and-kcc-d4f432719a74',
+    },
+    {
+      thumbnail_ch: require('../../assets/images/activity/mojitoswap-cn.png').default,
+      thumbnail_en: require('../../assets/images/activity/mojitoswap-en.png').default,
+      deadline: '2021/09/10 10:57:33',
+      url_ch: 'https://medium.com/@mojitoswap/ama-recap-mojitoswap-growth-and-plans-1e676361df85',
+      url_en: 'https://medium.com/@mojitoswap/ama-recap-mojitoswap-growth-and-plans-1e676361df85',
+    },
   ]
 
   const [endedList, setEndedList] = React.useState([])
