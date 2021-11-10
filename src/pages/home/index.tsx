@@ -483,19 +483,92 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     color: #ffffff;
   `
 
+  const TwoLine = require('../../assets/images/home/twoline.svg').default
+
   const MileStoneWrap = styled(CenterRow)`
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
     margin: 60px 0 60px 0;
     padding: 0px 60px;
     position: relative;
+    margin-bottom: 140px;
+    height: 300px;
+    background: url(${TwoLine}) top center no-repeat;
     @media (max-width: 768px) {
       flex-flow: column nowrap;
       align-items: flex-start;
       justify-content: flex-start;
       margin-bottom: 40px;
+      background: none;
+      height: auto;
     }
   `
+
+  const RightOrder = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    position: relative;
+    top: -20px;
+  `
+  const ReverseOrder = styled.div`
+    margin-top: 115px;
+    display: flex;
+    width: 1000px;
+    flex-flow: row-reverse nowrap;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  `
+
+  let milestoreId = 0
+
+  const FourPerGroupList = []
+
+  for (let i = 0, len = KCC.MILESTONES.length; i < len; i += 4) {
+    console.log(KCC.MILESTONES.slice(i, i + 4))
+    FourPerGroupList.push(KCC.MILESTONES.slice(i, i + 4))
+  }
+
+  const PcMileStone = FourPerGroupList.map((item, index) => {
+    const C = milestoreId % 2 === 0 ? RightOrder : ReverseOrder
+
+    const list = item
+
+    const Line = (
+      <C>
+        {list.map((milestore, nth) => {
+          return (
+            <Row
+              style={{
+                flexFlow: 'column nowrap',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                height: '120px',
+                position: 'relative',
+              }}
+            >
+              <MilestoneIconWrap>
+                {(index === FourPerGroupList.length - 1 && nth === list.length - 1) || (index === 0 && nth === 0) ? (
+                  <DotComponent shining={true} />
+                ) : (
+                  <img src={milestore.icon} width="32px" />
+                )}
+              </MilestoneIconWrap>
+              <MilestoneDateText style={{ marginTop: '10px' }}>{milestore.date}</MilestoneDateText>
+              <MilestoneTitle>{t(`${milestore.title}`)}</MilestoneTitle>
+            </Row>
+          )
+        })}
+      </C>
+    )
+
+    milestoreId++
+
+    return Line
+  })
 
   const MilestoneList = KCC.MILESTONES.map((item, index) => {
     const Icon =
@@ -504,38 +577,21 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
       ) : (
         <img src={item.icon} width="32px" />
       )
-
-    if (isMobile) {
-      return (
-        <Row
-          style={{
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-            height: '65px',
-            position: 'relative',
-          }}
-        >
-          <MilestoneIconWrap>{Icon}</MilestoneIconWrap>
-          <div>
-            <MilestoneDateText style={{ marginTop: '10px' }}>{item.date}</MilestoneDateText>
-            <MilestoneTitle>{t(`${item.title}`)}</MilestoneTitle>
-          </div>
-        </Row>
-      )
-    }
     return (
-      <ColumnCenter
+      <Row
         style={{
           alignItems: 'center',
           justifyContent: 'flex-start',
-          textAlign: 'center',
-          width: '180px',
+          height: '65px',
+          position: 'relative',
         }}
       >
         <MilestoneIconWrap>{Icon}</MilestoneIconWrap>
-        <MilestoneDateText style={{ marginTop: '10px' }}>{item.date}</MilestoneDateText>
-        <MilestoneTitle>{t(`${item.title}`)}</MilestoneTitle>
-      </ColumnCenter>
+        <div>
+          <MilestoneDateText style={{ marginTop: '10px' }}>{item.date}</MilestoneDateText>
+          <MilestoneTitle>{t(`${item.title}`)}</MilestoneTitle>
+        </div>
+      </Row>
     )
   })
 
@@ -658,8 +714,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
             <TitleText>{t('Our Milestones')}</TitleText>
             <ParagraphText>{t('Milestone Subtitlle')}</ParagraphText>
             <MileStoneWrap gap="8px">
-              {MilestoneList}
-              <BrowserView>
+              <BrowserView>{PcMileStone}</BrowserView>
+              {/* <BrowserView>
                 <Progress
                   style={{ width: '100%', position: 'absolute', zIndex: 3, left: '0px', top: '12px' }}
                   strokeColor={{
@@ -672,15 +728,16 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                   status="active"
                   trailColor="#09402A"
                 />
-              </BrowserView>
+              </BrowserView> */}
               <MobileView>
+                {MilestoneList}
                 <Row
                   style={{
                     position: 'absolute',
                     transform: 'rotate(90deg)',
                     transformOrigin: 'top left',
                     zIndex: 3,
-                    width: '610px',
+                    width: '540px',
                     left: '40px',
                     top: '0px',
                   }}
