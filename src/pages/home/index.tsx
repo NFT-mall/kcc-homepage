@@ -481,11 +481,13 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
   `
   const MilestoneTitle = styled(MilestoneDateText)`
     color: #ffffff;
+    text-align: center;
   `
 
   const TwoLine = require('../../assets/images/home/twoline.svg').default
 
   const MileStoneWrap = styled(CenterRow)`
+    width: 100%;
     align-items: flex-start;
     justify-content: center;
     margin: 60px 0 60px 0;
@@ -509,14 +511,16 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     position: relative;
     top: -20px;
   `
   const ReverseOrder = styled.div`
     margin-top: 115px;
     display: flex;
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     flex-flow: row-reverse nowrap;
     justify-content: space-between;
     align-items: center;
@@ -548,11 +552,12 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                 justifyContent: 'flex-start',
                 height: '120px',
                 position: 'relative',
+                width: '230px',
               }}
             >
               <MilestoneIconWrap>
                 {(index === FourPerGroupList.length - 1 && nth === list.length - 1) || (index === 0 && nth === 0) ? (
-                  <DotComponent shining={true} />
+                  <DotComponent shining={index === FourPerGroupList.length - 1 && nth === list.length - 1} />
                 ) : (
                   <img src={milestore.icon} width="32px" />
                 )}
@@ -707,7 +712,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
         <BaseWrap
           style={{
             padding: isMobile || isTablet ? '47px 24px 0px 24px' : '88px 0 0px 0',
-            width: isMobile ? 'auto' : '1400px',
+            width: isMobile ? 'auto' : '100%',
+            maxWidth: isMobile ? '100%' : '1200px',
           }}
         >
           <ColumnCenter>
