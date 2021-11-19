@@ -490,12 +490,13 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     width: 100%;
     align-items: flex-start;
     justify-content: center;
-    margin: 60px 0 60px 0;
+    margin: 60px 0px 60px 0px;
     padding: 0px 60px;
     position: relative;
     margin-bottom: 140px;
     height: 550px;
     background: url(${TwoLine}) top center no-repeat;
+    background-size: 99% 100%;
     @media (max-width: 768px) {
       flex-flow: column nowrap;
       align-items: flex-start;
@@ -514,10 +515,10 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     width: 100%;
     max-width: 1000px;
     position: relative;
-    top: -22px;
+    top: -3px;
   `
   const ReverseOrder = styled.div`
-    margin: 115px 0 159px 0;
+    margin: 132px 0 136px 0;
     display: flex;
     width: 100%;
     max-width: 1000px;
