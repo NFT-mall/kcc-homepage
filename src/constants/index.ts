@@ -19,6 +19,7 @@ export const KCC = {
   GRANTS: 'https://github.com/kcc-community/kcc-grants',
   DISCOVER: 'https://discover.kcc.io',
   DAO: 'https://godao.community',
+  SAFE_GNOSIS: 'https://safe.kcc.io',
   CONTACT_LIST: [
     {
       app: 'Twitter',
@@ -75,6 +76,11 @@ export const KCC = {
     {
       date: '2021-10-21',
       title: 'GoDao Launched',
+      icon: require('../assets/images/home/milestone-icon@2x.png').default,
+    },
+    {
+      date: '2021-11-19',
+      title: 'Safe.kcc.io Launched',
       icon: require('../assets/images/home/milestone-icon@2x.png').default,
     },
     {

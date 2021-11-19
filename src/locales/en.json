@@ -87,9 +87,9 @@
   "Directions": "Directions",
   "Milestone Titlle": "MileStones",
   "Milestone Subtitlle": "Make History With KCC",
-  "Milestone 1": "KCC (testnet) launched",
-  "Milestone 2": "KCC launched",
-  "Milestone 3": "Grant Program launched",
+  "Milestone 1": "KCC (testnet) Launched",
+  "Milestone 2": "KCC Launched",
+  "Milestone 3": "Grant Program Launched",
   "Milestone Last": "Coming Soon...",
   "Participate now": "Join now",
   "KCC Activity Center": "KCC Activities",
@@ -192,7 +192,7 @@
   "Apporve Success": "Successful approval",
   "Transaction Confirmed": " Your transaction is processing. Please check its details in the transaction history. ",
   "Transfer confirmation": "Transfer confirmation",
-  "KCC Bridge Launched": "KCC Bridge launched",
+  "KCC Bridge Launched": "KCC Bridge Launched",
   "Max": "Max",
   "Approved Success": "Approved Success",
   "Add assets to the wallet list": "Add assets to the wallet list",
@@ -209,5 +209,8 @@
   "Discover Launched": "Discover Launched",
   "DELAY": "Delay",
   "Dao Desc": "GoDao let every member of the KCS community can participate in KCC decision-making",
-  "GoDao Launched": "GoDao Launched"
+  "GoDao Launched": "GoDao Launched",
+  "Safe.kcc.io Launched": "Safe.kcc.io Launched",
+  "Gnosis Safe Multisig": "Gnosis Safe Multisig",
+  "Protect asset security": "Protect asset security"
 }

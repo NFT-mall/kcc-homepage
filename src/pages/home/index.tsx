@@ -484,7 +484,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     text-align: center;
   `
 
-  const TwoLine = require('../../assets/images/home/twoline.svg').default
+  const TwoLine = require('../../assets/images/home/threeline.svg').default
 
   const MileStoneWrap = styled(CenterRow)`
     width: 100%;
@@ -494,7 +494,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     padding: 0px 60px;
     position: relative;
     margin-bottom: 140px;
-    height: 300px;
+    height: 550px;
     background: url(${TwoLine}) top center no-repeat;
     @media (max-width: 768px) {
       flex-flow: column nowrap;
@@ -514,10 +514,10 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     width: 100%;
     max-width: 1000px;
     position: relative;
-    top: -20px;
+    top: -22px;
   `
   const ReverseOrder = styled.div`
-    margin-top: 115px;
+    margin: 115px 0 159px 0;
     display: flex;
     width: 100%;
     max-width: 1000px;

@@ -88,6 +88,13 @@ export const MENU_LIST = [
             route: KCC.DISCOVER,
             icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
+          {
+            title: 'Gnosis Safe Multisig',
+            subTitle: 'Protect asset security',
+            route: KCC.SAFE_GNOSIS,
+            icon: require('../assets/images/home/duoqian.svg').default,
+          },
+
           // {
           //   title: 'Submit a Dapp',
           //   subTitle: 'Submit your dapp to the community',
