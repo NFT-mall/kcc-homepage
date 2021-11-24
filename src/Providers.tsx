@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import store from './state'
 import { NetworkContextName, OppositeNetworkName } from './constants/wallet'
 import { getLibrary } from './components/Web3ReactManager'
-import { HashRouter } from 'react-router-dom'
+import { HashRouter, BrowserRouter } from 'react-router-dom'
 
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
 
@@ -18,7 +18,7 @@ const Providers: FunctionComponent = ({ children }) => {
         <Web3ReactOppsiteProvider getLibrary={getLibrary}>
           <ConfigProvider>
             <Provider store={store}>
-              <HashRouter>{children}</HashRouter>
+              <BrowserRouter>{children}</BrowserRouter>
             </Provider>
           </ConfigProvider>
         </Web3ReactOppsiteProvider>
