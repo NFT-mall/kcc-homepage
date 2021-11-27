@@ -5,6 +5,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
+import Helmet from 'react-helmet'
 
 import { useConnectWalletModalShow } from '../../state/wallet/hooks'
 import WalletListModal from '../../components/WalletListModal'
@@ -209,6 +210,13 @@ const BridgePage: React.FunctionComponent<BridgePageProps> = ({ children }) => {
 
   return (
     <BridgeWrap>
+      <Helmet>
+        <title>KCC Bridge - Link to Other Public Chains</title>
+        <meta
+          name="description"
+          content="KCC Bridge provides the most convenient cross-chain asset conversion service. You can easily link to other public chains."
+        />
+      </Helmet>
       <WalletListModal visible={walletListModalShow} />
       <NavBg />
       <Content>

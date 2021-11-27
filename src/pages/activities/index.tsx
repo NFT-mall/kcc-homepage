@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { BaseWrap, HomePageWrap } from '../home/index'
 import Card from '../../components/ActivityCard'
+import Helmet from 'react-helmet'
 
 export interface GrantsPageProps {}
 
@@ -185,6 +186,10 @@ const ActivitiesPage: React.FunctionComponent<GrantsPageProps> = () => {
 
   return (
     <ActivitiesPageWrap>
+      <Helmet>
+        <title>KCC Activities</title>
+        <meta name="description" content="Join exciting KCC activities, including hackathon, meet-up and more." />
+      </Helmet>
       {/* banner */}
       <ContentWrap>
         <Title>{t(`KCC Activity Center`)}</Title>

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Button, Input, message, Progress } from 'antd'
 import axios from 'axios'
 import { RightOutlined } from '@ant-design/icons'
+import Helmet from 'react-helmet'
 
 import Column from '../../components/Column/index'
 import { BrowserView, MDivider, MobileView, ParagraphText, TitleText } from '../../components/Common'
@@ -543,10 +544,11 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     const list = item
 
     const Line = (
-      <C>
+      <C key={index}>
         {list.map((milestore, nth) => {
           return (
             <Row
+              key={nth}
               style={{
                 flexFlow: 'column nowrap',
                 alignItems: 'center',
@@ -603,6 +605,13 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
 
   return (
     <>
+      <Helmet>
+        <title>KCC Official Homepage - KuCoin Community Chain</title>
+        <meta
+          name="description"
+          content="KCC is a high performance decentralized public chain built by the fans of KCS and KuCoin. We aim to provide community users with faster, more convenient and low-cost experience."
+        />
+      </Helmet>
       <HomePageWrap>
         {/* banner */}
         {/*    <BannerCoverWrap src={BannerBgHover} /> */}

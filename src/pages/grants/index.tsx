@@ -11,6 +11,7 @@ import { AutoColumn } from '../../components/Column/index'
 import { theme } from '../../constants/theme'
 import { KCC } from '../../constants/index'
 import { useResponsive } from '../../utils/responsive'
+import Helmet from 'react-helmet'
 import { useEffect } from 'react'
 
 export interface GrantsPageProps {}
@@ -146,6 +147,13 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
 
   return (
     <GrantsPageWrap>
+      <Helmet>
+        <title>KCC Grant Program - Get Supports and Grants for Your Projects</title>
+        <meta
+          name="description"
+          content="KCC is a high performance decentralized public chain built by the fans of KCS and KuCoin. We aim to provide community users with faster, more convenient and low-cost experience."
+        />
+      </Helmet>
       {/* banner */}
       <BrowserView>
         <GrantBgCover
