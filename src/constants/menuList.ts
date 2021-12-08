@@ -127,7 +127,7 @@ export const MENU_LIST = [
           {
             title: 'More Wallet',
             subTitle: 'View more wallet in Discover',
-            route: '',
+            route: 'https://discover.kcc.io/project?id=10',
             icon: require('../assets/images/Icons/menu/wallet@2x.png').default,
           },
         ],
