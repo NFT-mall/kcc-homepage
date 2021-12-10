@@ -122,6 +122,13 @@ const CloseIcon = styled.img`
   cursor: pointer;
 `
 
+const InfoText = styled.div`
+  color: #01081e;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 5px;
+`
+
 const SelectToken: React.FunctionComponent<SelectTokenProps> = ({ list, currency, srcId, distId, setCurrency }) => {
   const { t } = useTranslation()
 
@@ -218,7 +225,10 @@ const SelectToken: React.FunctionComponent<SelectTokenProps> = ({ list, currency
             suffix={null}
             placeholder={t('Search')}
           />
-          <ListWrap>{tokenList}</ListWrap>
+          <ListWrap> 
+            {tokenList}
+            <InfoText>{t("Didn't find your token？or you can try")} <span style={{color: '#31D7A0', cursor: 'pointer'}} onClick={() => window.open('https://forms.office.com/r/fBYJgH68ZX')}>{t("submit")}</span> {t("it to us.")}</InfoText>
+          </ListWrap>
         </TokenListModal>
       </Modal>
     </>

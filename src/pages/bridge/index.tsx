@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
+import { Dropdown } from 'antd'
+import { ArrowRightOutlined } from '@ant-design/icons';
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'react-i18next'
@@ -17,6 +19,7 @@ import { updatePairList } from '../../state/bridge/actions'
 import { PairInfo } from '../../state/bridge/reducer'
 import useAuth from '../../hooks/useAuth'
 import { ChainIds } from '../../connectors'
+import { theme } from '../../constants/theme'
 import { updateErrorInfo } from '../../state/wallet/actions'
 
 import BridgeTransfer from './transfer'
@@ -76,7 +79,7 @@ const CenterBgImg = styled.img`
 const ButtonBgImg = styled.img`
   position: absolute;
   width: 100%;
-  heigth: 800px;
+  height: 800px;
   bottom: 0;
   left: 0;
 `
@@ -125,6 +128,42 @@ const CloseIcon = styled.img`
   right: 16px;
   top: 16px;
   cursor: pointer;
+`
+
+const QuestionWrapper = styled.div`
+  height: 30px;
+  width: 124px;
+  border-radius: 0 20px 20px 20px;
+  background: ${theme.colors.primary};
+  position: absolute;
+  bottom: 100px;
+  right: 50px;
+  color: #000;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+`
+
+const InfoWrapper = styled.div`
+  border: 1px solid ${theme.colors.primary};
+  border-radius: 5px;
+  padding: 0px 10px 13px 10px;
+  margin-top: 10px
+`
+
+const InfoItem = styled.div`
+  display: flex;
+  align-items: center;
+  padding-top: 13px;
+  cursor: pointer;
+`
+
+const InfoItemText = styled.div`
+  font-size: 15px;
+  line-height: 16px;
+  color: ${theme.colors.primary};
+  margin-right: 5px;
 `
 
 const BridgePage: React.FunctionComponent<BridgePageProps> = ({ children }) => {
@@ -208,6 +247,19 @@ const BridgePage: React.FunctionComponent<BridgePageProps> = ({ children }) => {
     }
   }, [account])
 
+  const menu = (
+    <InfoWrapper>
+      <InfoItem onClick={() => {window.open('https://forms.office.com/r/JfXxKRjuwi')}}>
+        <InfoItemText>{t('About technical issues')}</InfoItemText>
+        <ArrowRightOutlined style={{color: theme.colors.primary, fontSize: '11px'}}/>
+      </InfoItem>
+      <InfoItem onClick={() => {window.open('https://forms.office.com/r/fBYJgH68ZX')}}>
+        <InfoItemText>{t('About business issues')}</InfoItemText>
+        <ArrowRightOutlined style={{color: theme.colors.primary, fontSize: '11px'}}/>
+      </InfoItem>
+    </InfoWrapper>
+  )
+
   return (
     <BridgeWrap>
       <Helmet>
@@ -246,8 +298,8 @@ const BridgePage: React.FunctionComponent<BridgePageProps> = ({ children }) => {
             </CSSTransition>
           </SwitchTransition>
         )}
+        <Dropdown overlay={menu} placement="bottomLeft"><QuestionWrapper>{t('Got a problem?')}</QuestionWrapper></Dropdown>
       </Content>
-
       <CenterBgImg src={CenterBg} />
       <ButtonBgImg src={require('../../assets/images/bridge/bottom-bg@2x.png').default} />
     </BridgeWrap>
