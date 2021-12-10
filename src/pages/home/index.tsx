@@ -472,23 +472,28 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
   const navToAddNetwork = () => {
     const { ethereum } = window
     if(ethereum){
-      ethereum.request({
-        method: 'wallet_addEthereumChain',
-        params: [{
-        chainId: '0x141',
-        chainName: 'KCC Mainnet Network',
-        nativeCurrency: {
-            name: 'KCS',
-            symbol: 'KCS',
-            decimals: 18
-        },
-        rpcUrls: ['https://rpc-mainnet.kcc.network'],
-        blockExplorerUrls: ['https://explorer.kcc.io']
-        }]
-      })
-      .catch((error: any) => {
-        console.log(error)
-      }) 
+      if(ethereum?.chainId === '0x141'){
+        window.location.hash = '/'
+        window.location.hash = '#WhyKcc'
+      } else {
+        ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [{
+          chainId: '0x141',
+          chainName: 'KCC Mainnet Network',
+          nativeCurrency: {
+              name: 'KCS',
+              symbol: 'KCS',
+              decimals: 18
+          },
+          rpcUrls: ['https://rpc-mainnet.kcc.network'],
+          blockExplorerUrls: ['https://explorer.kcc.io']
+          }]
+        })
+        .catch((error: any) => {
+          console.log(error)
+        }) 
+      }
     } else {
       message.error(t(`Connect your wallet`))
     }
@@ -749,7 +754,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                     style={{ width: '380px', height: 'auto' }}
                   />
                 </ImageWrap>
-                <Column style={{ marginLeft: '50px' }}>
+                <Column style={{ marginLeft: '50px' }} id="WhyKcc">
                   <TitleText
                     style={{
                       width: 'auto',
