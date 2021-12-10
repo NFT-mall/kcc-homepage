@@ -143,13 +143,18 @@ const QuestionWrapper = styled.div`
   line-height: 30px;
   text-align: center;
   cursor: pointer;
+  @media (max-width: 768px) {
+    bottom: -5px;
+    right: 20px;
+  }
 `
 
 const InfoWrapper = styled.div`
   border: 1px solid ${theme.colors.primary};
   border-radius: 5px;
   padding: 0px 10px 13px 10px;
-  margin-top: 10px
+  margin-top: 10px;
+  background: #000;
 `
 
 const InfoItem = styled.div`
