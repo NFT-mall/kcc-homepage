@@ -473,8 +473,10 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     const { ethereum } = window
     if(ethereum){
       if(ethereum?.chainId === '0x141'){
-        window.location.hash = '/'
-        window.location.hash = '#WhyKcc'
+        window.scrollTo({
+          top: 460,
+          behavior: "smooth"
+        })
       } else {
         ethereum.request({
           method: 'wallet_addEthereumChain',

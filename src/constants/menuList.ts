@@ -81,6 +81,12 @@ export const MENU_LIST = [
         groupName: 'Explorer',
         groupMember: [
           {
+            title: 'Explorer (Recommend)',
+            subTitle: 'View information on the KCC public chain',
+            route: KCC.EXPLORER2,
+            icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
+          },
+          {
             title: 'Explorer',
             subTitle: 'View information on the KCC public chain',
             route: KCC.EXPLORER,
