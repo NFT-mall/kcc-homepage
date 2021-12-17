@@ -81,15 +81,15 @@ export const MENU_LIST = [
         groupName: 'Explorer',
         groupMember: [
           {
-            title: 'Explorer (Recommend)',
+            title: 'Explorer1',
             subTitle: 'View information on the KCC public chain',
-            route: KCC.EXPLORER2,
+            route: KCC.EXPLORER,
             icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
           {
-            title: 'Explorer',
+            title: 'Explorer2',
             subTitle: 'View information on the KCC public chain',
-            route: KCC.EXPLORER,
+            route: KCC.EXPLORER2,
             icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
         ],
