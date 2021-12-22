@@ -110,7 +110,12 @@ const ChangeLanguage: React.FunctionComponent<ChangeLanguageProps> = () => {
 
   const selectOptions = allLanguages.map((lng, index) => {
     return (
-      <LanguageItem key={index} onClick={selectChange.bind(null, lng.code)} onMouseEnter={showPop}>
+      <LanguageItem
+        key={index}
+        onClick={selectChange.bind(null, lng.code)}
+        onMouseEnter={showPop}
+        onMouseLeave={hidePopover}
+      >
         <RowBetween>
           <Text> {lng.language}</Text>
         </RowBetween>

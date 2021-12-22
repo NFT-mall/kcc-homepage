@@ -14,6 +14,7 @@ import BridgeOrderConfirm from './pages/bridge/detail'
 const Grants = lazy(() => import(/* webpackChunkName:'Grant' */ './pages/grants/index'))
 const Activity = lazy(() => import(/* webpackChunkName:'Activity' */ './pages/activities/index'))
 const Bridge = lazy(() => import(/* webpackChunkName:'Bridge' */ './pages/bridge/index'))
+const Ambassador = lazy(() => import(/* webpackChunkName:'Ambassador' */ './pages/ambassador/index'))
 
 import { clearConfirmAndOutdateOrder } from './utils/task'
 
@@ -77,6 +78,7 @@ export default function App() {
             <Route path="/" exact={true} component={Home} />
             <Route path="/community/grants" exact={true} component={Grants} />
             <Route path="/community/activity" exact={true} component={Activity} />
+            <Route path="/ambassador" exact={true} component={Ambassador} />
             {routes.map((route, i) => (
               <RouteWithSubRoutes key={i} {...route} />
             ))}

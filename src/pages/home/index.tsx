@@ -46,7 +46,7 @@ export const BannerWrap = styled.div`
   padding-top: 80px;
   height: 460px;
   display: flex;
-  flex-flow: row no-wrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   background: url(${BannerBgImage}) top center no-repeat;

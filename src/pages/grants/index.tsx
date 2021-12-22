@@ -66,7 +66,7 @@ export const GrantBannerWrap = styled.div`
   padding-top: 80px;
   height: 460px;
   display: flex;
-  flex-flow: row no-wrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   background-size: auto 100%;

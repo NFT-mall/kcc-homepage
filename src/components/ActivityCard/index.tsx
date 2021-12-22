@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Column from '../Column'
 import { useTranslation } from 'react-i18next'
-
+import { useHistory, withRouter } from 'react-router-dom'
 export interface ActivityCardProps {
   deadline: string
   thumbnail_en: string
@@ -62,8 +62,14 @@ const ActivityCardWrap = styled(Column)<{ lng: string; enBg: string; chBg: strin
 
 const ActivityCard: React.FunctionComponent<ActivityCardProps> = (props) => {
   const { t, i18n } = useTranslation()
+  const history = useHistory()
 
   const nav2Activity = () => {
+    if (!props.url_ch?.startsWith('http') || !props.url_en?.startsWith('http')) {
+      history.push(props.url_ch as string)
+      return
+    }
+
     if (i18n.language === 'zh-CN') {
       props.url_ch && window.open(props.url_ch, '_blank')
     } else {
@@ -81,4 +87,4 @@ const ActivityCard: React.FunctionComponent<ActivityCardProps> = (props) => {
   )
 }
 
-export default ActivityCard
+export default withRouter<any, any>(ActivityCard)

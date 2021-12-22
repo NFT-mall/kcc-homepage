@@ -15,7 +15,7 @@ import { withRouter } from 'react-router-dom'
 
 const AppHeaderWrap = styled.div`
   display: flex;
-  flex-flow: row no-wrap;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
   height: 80px;
@@ -35,7 +35,7 @@ const Box = styled.div`
 
 const HeaderLeftWrap = styled.div`
   display: flex;
-  flex-flow: row no-wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
   @media (min-width: 1200px) {
