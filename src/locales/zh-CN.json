@@ -24,6 +24,8 @@
   "Visit and link to ImToken": "访问并跳转到ImToken",
   "Visit and link to Shield Protocol": "访问并跳转到Shield Protocol",
   "Explorer": "浏览器",
+  "Explorer1": "浏览器1",
+  "Explorer2": "浏览器2",
   "View information on the KCC public chain": "查看KCC主网上的信息",
   "Community": "社区",
   "Activites": "活动",
@@ -212,5 +214,13 @@
   "GoDao Launched": "GoDao 上线",
   "Safe.kcc.io Launched": "多签钱包上线",
   "Gnosis Safe Multisig": "Gnosis Safe Multisig",
-  "Protect asset security": "保护KCC链上资产安全"
+  "Protect asset security": "保护KCC链上资产安全",
+  "View more wallet in Discover": "在Discover中查看更多",
+  "Got a problem?": "遇到了问题?",
+  "About technical issues": "关于技术问题",
+  "About business issues": "关于商务问题",
+  "Info": "信息",
+  "Didn't find your token？or you can try": "找不到你想要的令牌, 也许您可以尝试把它",
+  "submit": "提交",
+  "it to us.": "给我们。"
 }

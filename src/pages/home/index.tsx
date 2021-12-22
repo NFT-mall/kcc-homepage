@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, message, Progress } from 'antd'
+import { Button, Input, message, Progress, Dropdown } from 'antd'
 import axios from 'axios'
 import { RightOutlined } from '@ant-design/icons'
 import Helmet from 'react-helmet'
@@ -14,6 +14,7 @@ import NoticeBar from '../../components/NoticeBar'
 
 import { ColumnCenter } from '../../components/Column/index'
 import { KCC } from '../../constants/index'
+import { HOME_MENU_LIST } from '../../constants/menuList'
 import ContactCard from '../../components/ContactCard/index'
 import { CenterRow } from '../../components/Row/index'
 import { theme } from '../../constants/theme'
@@ -268,6 +269,20 @@ export const ButtonText = styled.div`
   }
 `
 
+export const ButtonInfo = styled.div`
+  .ant-btn-primary{
+    background: #000;
+  }
+  .text {
+    color: ${theme.colors.primary};
+  }
+`
+
+export const ButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 const IntroduceCoverImage = require('../../assets/images/home/why-top-cover.png').default
 
 const IntroduceCoverWrap = styled.div`
@@ -454,6 +469,38 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     window.open(KCC.DOCS_URL, '_blank')
   }
 
+  const navToAddNetwork = () => {
+    const { ethereum } = window
+    if(ethereum){
+      if(ethereum?.chainId === '0x141'){
+        window.scrollTo({
+          top: 460,
+          behavior: "smooth"
+        })
+      } else {
+        ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [{
+          chainId: '0x141',
+          chainName: 'KCC Mainnet Network',
+          nativeCurrency: {
+              name: 'KCS',
+              symbol: 'KCS',
+              decimals: 18
+          },
+          rpcUrls: ['https://rpc-mainnet.kcc.network'],
+          blockExplorerUrls: ['https://explorer.kcc.io']
+          }]
+        })
+        .catch((error: any) => {
+          console.log(error)
+        }) 
+      }
+    } else {
+      message.error(t(`Connect your wallet`))
+    }
+  }
+
   const MilestoneIconWrap = styled.div`
     text-align: center;
     width: 100%;
@@ -529,6 +576,27 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     position: relative;
   `
 
+  const InfoWrapper = styled.div`
+    border: 1px solid ${theme.colors.primary};
+    border-radius: 5px;
+    padding: 0px 10px 13px 10px;
+    margin-top: 10px
+  `
+
+  const InfoItem = styled.div`
+    display: flex;
+    align-items: center;
+    padding-top: 13px;
+    cursor: pointer;
+  `
+
+  const InfoItemText = styled.div`
+    font-size: 15px;
+    line-height: 16px;
+    color: ${theme.colors.primary};
+  `
+
+
   let milestoreId = 0
 
   const FourPerGroupList = []
@@ -603,6 +671,20 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     )
   })
 
+  const menu = (
+    <InfoWrapper>
+      {
+        HOME_MENU_LIST.map((item) => {
+          return(
+            <InfoItem onClick={() => {window.open(item.route)}}>
+              <InfoItemText>{t(item.title)}</InfoItemText>
+            </InfoItem>
+          )
+        })
+      }
+    </InfoWrapper>
+  )
+
   return (
     <>
       <Helmet>
@@ -621,22 +703,40 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
             <BannerDescription>
               {t('To accelerate the flow of value around the world without boundaries')}
             </BannerDescription>
-
-            <ButtonText>
-              <Button
-                type="primary"
-                style={{
-                  marginTop: '24px',
-                  width: isMobile ? '160px' : '145px',
-                  height: isMobile ? '48px' : '36px',
-                  color: '#000',
-                }}
-                onClick={navToDocs}
-              >
-                <span className="text">{t(`Get Start Now`)}</span>
-                <RightOutlined className="text" style={{ fontSize: '10px', marginLeft: '10px' }} />
-              </Button>
-            </ButtonText>
+            <ButtonWrap>
+              <ButtonText>
+                <Button
+                  type="primary"
+                  style={{
+                    marginTop: '24px',
+                    width: isMobile ? '160px' : '145px',
+                    height: isMobile ? '48px' : '36px',
+                    marginRight: '20px',
+                    color: '#000',
+                  }}
+                  onClick={navToAddNetwork}
+                >
+                  <span className="text">{t(`Get Start Now`)}</span>
+                  <RightOutlined className="text" style={{ fontSize: '10px', marginLeft: '10px' }} />
+                </Button>
+              </ButtonText>
+              <ButtonInfo>
+                <Dropdown overlay={menu}>
+                  <Button
+                    type="primary"
+                    style={{
+                      marginTop: '24px',
+                      width: isMobile ? '160px' : '145px',
+                      height: isMobile ? '48px' : '36px',
+                      color: '#000',
+                    }}
+                    onClick={navToAddNetwork}
+                  >
+                    <span className="text">{t(`Info`)}</span>
+                  </Button>
+                </Dropdown>
+              </ButtonInfo>
+            </ButtonWrap>
           </BannerContentWrap>
         </BannerWrap>
       </HomePageWrap>
@@ -656,7 +756,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                     style={{ width: '380px', height: 'auto' }}
                   />
                 </ImageWrap>
-                <Column style={{ marginLeft: '50px' }}>
+                <Column style={{ marginLeft: '50px' }} id="WhyKcc">
                   <TitleText
                     style={{
                       width: 'auto',

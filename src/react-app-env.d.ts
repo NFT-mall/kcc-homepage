@@ -8,6 +8,7 @@ interface Window {
     on: (...args: any[]) => void
     removeListener: (...args: any[]) => void
     request: any
+    chainId?: string | undefined | null
   }
   web3?: any
 }

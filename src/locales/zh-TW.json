@@ -24,6 +24,8 @@
   "Visit and link to ImToken": "訪問並跳轉到ImToken",
   "Visit and link to Shield Protocol": "訪問並跳轉到Shield Protocol",
   "Explorer": "瀏覽器",
+  "Explorer1": "瀏覽器1",
+  "Explorer2": "瀏覽器2",
   "View information on the KCC public chain": "查看KCC主網上的信息",
   "Community": "社區",
   "Activites": "活動",
@@ -209,5 +211,11 @@
   "Discover Launched": "Discover上線",
   "DELAY": "異常",
   "Dao Desc": "GoDao讓KCS社區的每個成員都能參與KCC決策",
-  "GoDao Launched": "GoDao 上线"
+  "GoDao Launched": "GoDao 上线",
+  "View more wallet in Discover": "在Discover中查看更多",
+  "Protect asset security": "保护KCC链上资产安全",
+  "Got a problem?": "遇到了問題?",
+  "About technical issues": "關於技術問題",
+  "About business issues": "關於商務問題",
+  "Info": "信息"
 }

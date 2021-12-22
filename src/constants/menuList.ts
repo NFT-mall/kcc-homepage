@@ -21,6 +21,21 @@ export interface NavItemGroupType {
   groupMember: NavItemChildrenType[]
 }
 
+export const HOME_MENU_LIST = [
+  {
+    title: 'Developer Docs',
+    subTitle: 'Start building on KuCoin Community Chain',
+    route: KCC.DOCS_URL,
+    icon: require('../assets/images/Icons/menu/docs@2x.png').default,
+  },
+  {
+    title: 'Github',
+    subTitle: 'Visit our Github community',
+    route: KCC.GITHUB_URL,
+    icon: require('../assets/images/Icons/menu/github@2x.png').default,
+  }
+]
+
 export const MENU_LIST = [
   {
     name: 'Home',
@@ -66,9 +81,15 @@ export const MENU_LIST = [
         groupName: 'Explorer',
         groupMember: [
           {
-            title: 'Explorer',
+            title: 'Explorer1',
             subTitle: 'View information on the KCC public chain',
             route: KCC.EXPLORER,
+            icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
+          },
+          {
+            title: 'Explorer2',
+            subTitle: 'View information on the KCC public chain',
+            route: KCC.EXPLORER2,
             icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
         ],
@@ -112,22 +133,22 @@ export const MENU_LIST = [
             route: 'https://metamask.io',
             icon: require('../assets/images/Icons/menu/metamask@2x.png').default,
           },
-          {
-            title: 'ImToken',
-            subTitle: 'Visit and link to ImToken',
-            route: 'https://token.im/',
-            icon: require('../assets/images/Icons/menu/imtoken@2x.png').default,
-          },
-          {
-            title: 'Shield Protocol',
-            subTitle: 'Visit and link to Shield Protocol',
-            route: 'https://shieldprotocol.org',
-            icon: require('../assets/images/Icons/menu/shield.png').default,
-          },
+          // {
+          //   title: 'ImToken',
+          //   subTitle: 'Visit and link to ImToken',
+          //   route: 'https://token.im/',
+          //   icon: require('../assets/images/Icons/menu/imtoken@2x.png').default,
+          // },
+          // {
+          //   title: 'Shield Protocol',
+          //   subTitle: 'Visit and link to Shield Protocol',
+          //   route: 'https://shieldprotocol.org',
+          //   icon: require('../assets/images/Icons/menu/shield.png').default,
+          // },
           {
             title: 'More Wallet',
-            subTitle: 'Coming Soon...',
-            route: '',
+            subTitle: 'View more wallet in Discover',
+            route: 'https://discover.kcc.io/project?id=10',
             icon: require('../assets/images/Icons/menu/wallet@2x.png').default,
           },
         ],
