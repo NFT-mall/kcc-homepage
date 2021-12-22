@@ -95,8 +95,8 @@ const ActivitiesPage: React.FunctionComponent<GrantsPageProps> = () => {
       thumbnail_ch: require('../../assets/images/activity/activity-1-ch.png').default,
       thumbnail_en: require('../../assets/images/activity/activity-1-en.png').default,
       deadline: '2023/07/07 10:57:33',
-      url_ch: '/ambassador',
-      url_en: '/ambassador',
+      url_ch: 'https://kccofficial.medium.com/kcc-godao-ambassador-program-launched-ee4159067741',
+      url_en: 'https://kccofficial.medium.com/kcc-godao-ambassador-program-launched-ee4159067741',
     },
     {
       thumbnail_ch: require('../../assets/images/activity/KCC-AMA-CN.png').default,
