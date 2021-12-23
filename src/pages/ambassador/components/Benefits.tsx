@@ -111,9 +111,10 @@ export default function Benefits() {
     <BenefitWrap>
       <TitleText
         style={{
+          fontFamily: 'URWDIN-Bold',
           marginTop: '89px',
           color: '#fff',
-          fontSize: isMobile ? '28px:' : '52px',
+          fontSize: isMobile ? '32px:' : '52px',
           textAlign: isMobile ? 'center' : 'left',
         }}
       >

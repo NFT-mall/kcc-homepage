@@ -141,6 +141,7 @@ const AmbassadorPage: React.FunctionComponent<AmbassadorPageProps> = () => {
         <BannerContentWrap>
           <BannerTitle
             style={{
+              fontSize: isMobile ? '36px' : '60px',
               color: '#fff',
               width: isMobile ? '100%' : 'auto',
               maxWidth: isMobile ? '100%' : '630px',

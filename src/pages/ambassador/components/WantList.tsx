@@ -19,7 +19,7 @@ const TitleRow = styled.div`
   align-items: center;
 `
 const Title = styled.div`
-  font-family: 'SF Pro Display Bold';
+  font-family: 'URWDIN-Medium';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -50,7 +50,7 @@ const Line = styled.div`
 `
 
 const T = styled.div`
-  font-family: 'SF Pro Text';
+  font-family: 'URWDIN-Bold';
   font-style: normal;
   font-weight: bold;
   font-size: 52px;
@@ -59,7 +59,7 @@ const T = styled.div`
   text-align: center;
   color: #ffffff;
   @media (max-width: 768px) {
-    font-size: 28px;
+    font-size: 32px;
   }
 `
 

@@ -21,7 +21,7 @@ const ApplyWrap = styled.div`
 `
 
 const Title = styled.div`
-  font-family: 'SF Pro Display';
+  font-family: 'URWDIN-Bold';
   font-style: normal;
   font-weight: bold;
   font-size: 42px;
