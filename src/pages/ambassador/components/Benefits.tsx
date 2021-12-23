@@ -32,7 +32,7 @@ const BenifitList = [
   },
   {
     icon: require('../../../assets/images/ambassador/7.png').default,
-    desc: 'Priority support',
+    desc: 'Priority support from the KCC teams',
   },
 ]
 

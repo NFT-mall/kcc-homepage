@@ -106,7 +106,7 @@ export default function Wants() {
       <ListWrap>
         <TitleText title="Community Manager" />
         <Desc>
-          Moderate social channels and forums.
+          Moderate social channels and forums
           <br /> Post announcements, share updates, and answer questions
           <br /> Translate and forward the important announcement to the local community
         </Desc>
@@ -121,17 +121,17 @@ export default function Wants() {
         <Line style={{ margin: '64px 0' }} />
         <TitleText title="Technical Ambassador" />
         <Desc>
-          Help build the developer community.
-          <br /> Provide community tech support .
+          Help build the developer community
+          <br /> Provide community tech support
           <br />
-          Create and participate in bug bounties.
+          Create and participate in bug bounties
           <br />
-          Update dev docs; create tutorials .
+          Update dev docs; create tutorials
           <br />
-          Host dev workshops. Speak at community events.
-          <br /> Participate during hackathons.
+          Host dev workshops. Speak at community events
+          <br /> Participate during hackathons
           <br />
-          Identify developer needs and use cases.
+          Identify developer needs and use cases
         </Desc>
         <Line style={{ margin: '64px 0' }} />
         <TitleText title="Influence Spreader" />
