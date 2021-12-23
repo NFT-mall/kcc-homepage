@@ -64,7 +64,7 @@ const Line = styled.div`
   }
 `
 const Text = styled.div`
-  font-family: 'SF Pro Text';
+  font-family: 'URWDIN-Regular';
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
