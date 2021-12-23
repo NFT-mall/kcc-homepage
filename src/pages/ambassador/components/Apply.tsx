@@ -36,7 +36,7 @@ const Title = styled.div`
 `
 
 const Desc = styled.div`
-  font-family: 'SF Pro Text';
+  font-family: 'URWDIN-Regular';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
