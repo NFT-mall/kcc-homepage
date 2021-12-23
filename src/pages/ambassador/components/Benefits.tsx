@@ -115,7 +115,7 @@ export default function Benefits() {
           fontFamily: 'URWDIN-Bold',
           marginTop: '89px',
           color: '#fff',
-          fontSize: isMobile ? '32px:' : '52px',
+          fontSize: isMobile ? '32px' : '52px',
           textAlign: isMobile ? 'center' : 'left',
         }}
       >
