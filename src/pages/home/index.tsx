@@ -72,6 +72,7 @@ export const BannerContentWrap = styled.div`
   z-index: 1;
   @media (max-width: 768px) {
     width: 100%;
+    padding-bottom: 20px;
   }
   @media (max-width: 1200px) and (min-width: 769px) {
     padding: 0 24px;
@@ -270,7 +271,7 @@ export const ButtonText = styled.div`
 `
 
 export const ButtonInfo = styled.div`
-  .ant-btn-primary{
+  .ant-btn-primary {
     background: #000;
   }
   .text {
@@ -471,30 +472,33 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
 
   const navToAddNetwork = () => {
     const { ethereum } = window
-    if(ethereum){
-      if(ethereum?.chainId === '0x141'){
+    if (ethereum) {
+      if (ethereum?.chainId === '0x141') {
         window.scrollTo({
           top: 460,
-          behavior: "smooth"
+          behavior: 'smooth',
         })
       } else {
-        ethereum.request({
-          method: 'wallet_addEthereumChain',
-          params: [{
-          chainId: '0x141',
-          chainName: 'KCC Mainnet Network',
-          nativeCurrency: {
-              name: 'KCS',
-              symbol: 'KCS',
-              decimals: 18
-          },
-          rpcUrls: ['https://rpc-mainnet.kcc.network'],
-          blockExplorerUrls: ['https://explorer.kcc.io']
-          }]
-        })
-        .catch((error: any) => {
-          console.log(error)
-        }) 
+        ethereum
+          .request({
+            method: 'wallet_addEthereumChain',
+            params: [
+              {
+                chainId: '0x141',
+                chainName: 'KCC Mainnet Network',
+                nativeCurrency: {
+                  name: 'KCS',
+                  symbol: 'KCS',
+                  decimals: 18,
+                },
+                rpcUrls: ['https://rpc-mainnet.kcc.network'],
+                blockExplorerUrls: ['https://explorer.kcc.io'],
+              },
+            ],
+          })
+          .catch((error: any) => {
+            console.log(error)
+          })
       }
     } else {
       message.error(t(`Connect your wallet`))
@@ -580,7 +584,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     border: 1px solid ${theme.colors.primary};
     border-radius: 5px;
     padding: 0px 10px 13px 10px;
-    margin-top: 10px
+    margin-top: 10px;
   `
 
   const InfoItem = styled.div`
@@ -595,7 +599,6 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     line-height: 16px;
     color: ${theme.colors.primary};
   `
-
 
   let milestoreId = 0
 
@@ -673,15 +676,17 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
 
   const menu = (
     <InfoWrapper>
-      {
-        HOME_MENU_LIST.map((item) => {
-          return(
-            <InfoItem onClick={() => {window.open(item.route)}}>
-              <InfoItemText>{t(item.title)}</InfoItemText>
-            </InfoItem>
-          )
-        })
-      }
+      {HOME_MENU_LIST.map((item) => {
+        return (
+          <InfoItem
+            onClick={() => {
+              window.open(item.route)
+            }}
+          >
+            <InfoItemText>{t(item.title)}</InfoItemText>
+          </InfoItem>
+        )
+      })}
     </InfoWrapper>
   )
 

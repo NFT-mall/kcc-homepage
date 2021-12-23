@@ -13,6 +13,11 @@ const ApplyWrap = styled.div`
   align-items: center;
   background: url(${ApplyBgImg}) top center no-repeat;
   background-size: 100% 100%;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+    height: 420px;
+    background-size: auto 100%;
+  }
 `
 
 const Title = styled.div`
@@ -25,6 +30,9 @@ const Title = styled.div`
   text-align: center;
   color: #ffffff;
   margin-top: 110px;
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `
 
 const Desc = styled.div`
@@ -63,7 +71,13 @@ const Apply = () => {
     <ApplyWrap>
       <Title>Want to being a GoDAO Ambassador ?</Title>
       <Desc>Your information will be reviewed within 7 business days.</Desc>
-      <Button>Apply Now</Button>
+      <Button
+        onClick={() => {
+          window.open('https://forms.gle/pjo2XooRohr1wArb7', '_blank')
+        }}
+      >
+        Apply Now
+      </Button>
     </ApplyWrap>
   )
 }

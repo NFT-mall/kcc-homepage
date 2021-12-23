@@ -120,7 +120,7 @@ const BottomCoverImage = styled.img`
 
 const AmbassadorPage: React.FunctionComponent<AmbassadorPageProps> = () => {
   const { t } = useTranslation()
-  const { isMobile, isTablet } = useResponsive()
+  const { isMobile } = useResponsive()
 
   const nav2Grants = () => {
     window.open(KCC.GRANTS, '_blank')
@@ -139,7 +139,16 @@ const AmbassadorPage: React.FunctionComponent<AmbassadorPageProps> = () => {
 
       <GrantBannerWrap>
         <BannerContentWrap>
-          <BannerTitle style={{ color: '#fff', maxWidth: '630px' }}>{t('KCC GoDAO Ambassador Program')}</BannerTitle>
+          <BannerTitle
+            style={{
+              color: '#fff',
+              width: isMobile ? '100%' : 'auto',
+              maxWidth: isMobile ? '100%' : '630px',
+              textAlign: isMobile ? 'center' : 'left',
+            }}
+          >
+            {t('KCC GoDAO Ambassador Program')}
+          </BannerTitle>
           <BannerDescription
             style={{ color: '#fff', maxWidth: '482px', fontSize: '16px', fontWeight: 400, lineHeight: '28px' }}
           >

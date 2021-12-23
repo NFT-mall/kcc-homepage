@@ -1,4 +1,5 @@
 import React from 'react'
+import { isMobile } from 'react-device-detect'
 import styled from 'styled-components'
 import { TitleText } from '../../../components/Common'
 
@@ -42,6 +43,9 @@ const BenefitWrap = styled.div`
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `
 
 const Img = styled.img`
@@ -53,6 +57,10 @@ const Line = styled.div`
   background: #fff;
   height: 1px;
   margin: 32px 0;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 32px 0 16px 0;
+  }
 `
 const Text = styled.div`
   font-family: 'SF Pro Text';
@@ -72,6 +80,9 @@ const ListWrap = styled.div`
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
+  @media (max-width: 768px) {
+    margin-top: 60px;
+  }
 `
 
 const ListItem = styled.div`
@@ -83,12 +94,29 @@ const ListItem = styled.div`
   &:nth-child(even) {
     margin-left: 160px;
   }
+  @media (max-width: 768px) {
+    &:nth-child(even) {
+      margin-left: 0px;
+    }
+    padding: 0 20px;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 `
 
 export default function Benefits() {
   return (
     <BenefitWrap>
-      <TitleText style={{ marginTop: '89px', color: '#fff', fontSize: '52px' }}>
+      <TitleText
+        style={{
+          marginTop: '89px',
+          color: '#fff',
+          fontSize: isMobile ? '28px:' : '52px',
+          textAlign: isMobile ? 'center' : 'left',
+        }}
+      >
         Benefits of Being a GoDAO Ambassador
       </TitleText>
       <ListWrap>
