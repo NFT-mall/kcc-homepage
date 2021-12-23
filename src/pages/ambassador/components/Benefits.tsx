@@ -57,6 +57,7 @@ const Line = styled.div`
   background: #fff;
   height: 1px;
   margin: 32px 0;
+  opacity: 0.7;
   @media (max-width: 768px) {
     width: 100%;
     margin: 32px 0 16px 0;
