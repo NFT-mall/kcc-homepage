@@ -83,8 +83,10 @@ export function useTokenSupporChain() {
       ) {
         srcChainIds.push(srcChainInfo.chainId)
       }
-      if (!distChainIds.includes(distChainInfo.chainId)) {
-        // not check the same name of each chain
+      if (
+        distChainInfo.currency === state.bridge.currentCurrency?.symbol &&
+        !distChainIds.includes(distChainInfo.chainId)
+      ) {
         distChainIds.push(distChainInfo.chainId)
       }
     }
