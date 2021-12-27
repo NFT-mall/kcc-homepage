@@ -359,7 +359,9 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
     const orderRaw = JSON.stringify(transaction)
     console.log('transaction', transaction)
     const order = Base64.encode(orderRaw) as any
-    history.push(`/bridge/detail?o=${order}&page=${currentPage}`)
+    localStorage.setItem('DETAIL_ORDER', order)
+    localStorage.setItem('DETAIL_CURRENTPAGE', `${currentPage}`)
+    history.push(`/bridge/detail?page=${currentPage}`)
   }
 
   const list = historyList.map((transaction, index) => {
@@ -369,8 +371,8 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
 
     if (transaction.id) {
       selectedPairInfo = getPairInfo(transaction.pairId) as PairInfo
-      srcNetworkInfo = getNetworkInfo(selectedPairInfo.srcChainInfo.chainId)
-      distNetworkInfo = getNetworkInfo(selectedPairInfo.dstChainInfo.chainId)
+      srcNetworkInfo = getNetworkInfo(selectedPairInfo?.srcChainInfo?.chainId)
+      distNetworkInfo = getNetworkInfo(selectedPairInfo?.dstChainInfo?.chainId)
     } else {
       selectedPairInfo = getPairInfo(transaction.pairId) as PairInfo
       srcNetworkInfo = getNetworkInfo(transaction.srcId)
