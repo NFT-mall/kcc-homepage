@@ -132,7 +132,6 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
 
   const isMax = React.useMemo(() => {
     if (!amount) return false
-    console.log('maxAvailable', maxAvailable)
     return maxAvailableBalance === amount
   }, [amount, maxAvailableBalance, pairInfo])
 
@@ -318,6 +317,14 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
                 style={{ width: '40px' }}
                 onClick={() => {
                   setAmount(() => maxAvailableBalance)
+                  if (new BN(maxAvailableBalance).gt(0)) {
+                    setCheckList((list: any) => {
+                      return {
+                        ...list,
+                        amount: true,
+                      }
+                    })
+                  }
                 }}
               >
                 <Max>{t(`Max`)} | </Max>
