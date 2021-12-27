@@ -76,22 +76,21 @@ export function useTokenSupporChain() {
       }
       const srcChainInfo = chain.srcChainInfo
       const distChainInfo = chain.dstChainInfo
+      console.log('state.bridge.currentCurrency?.symbol', state.bridge.currentCurrency?.symbol)
       if (
         srcChainInfo.currency === state.bridge.currentCurrency?.symbol && // chain
         !srcChainIds.includes(srcChainInfo.chainId)
       ) {
         srcChainIds.push(srcChainInfo.chainId)
       }
-      if (
-        distChainInfo.currency === state.bridge.currentCurrency?.symbol &&
-        !distChainIds.includes(distChainInfo.chainId)
-      ) {
+      if (!distChainIds.includes(distChainInfo.chainId)) {
+        // not check the same name of each chain
         distChainIds.push(distChainInfo.chainId)
       }
     }
 
-    console.log('srcChainIds', srcChainIds)
-    console.log('distChainIds', distChainIds)
+    // console.log('srcChainIds', srcChainIds)
+    // console.log('distChainIds', distChainIds)
     return { srcChainIds, distChainIds }
   })
 }
