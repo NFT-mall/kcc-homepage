@@ -1,6 +1,7 @@
 const { when } = require('@craco/craco')
 const CracoLessPlugin = require('craco-less')
 const TerserPlugin = require('terser-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
   plugins: [
     {
@@ -21,6 +22,39 @@ module.exports = {
     },
   ],
   webpack: {
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        minSize: 3000,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 6,
+        automaticNameDelimiter: '-',
+        name: true,
+        cacheGroups: {
+          bn: {
+            name: 'bn',
+            test: /[\\/]node_modules[\\/]bn[\\/]/,
+            priority: 70,
+          },
+          bignumber: {
+            name: 'bignumber',
+            test: /[\\/]node_modules[\\/]bignumber[\\/]/,
+            priority: 20,
+          },
+          lodash: {
+            name: 'lodash',
+            test: /[\\/]node_modules[\\/]lodash[\\/]/,
+            priority: 20,
+          },
+          moment: {
+            name: 'moment',
+            test: /[\\/]node_modules[\\/]moment[\\/]/,
+            priority: 40,
+          },
+        },
+      },
+    },
     plugins: [
       ...when(
         process.env.NETWORK === 'main',
@@ -41,6 +75,7 @@ module.exports = {
         ],
         []
       ),
+      ...when(process.env.NETWORK === 'analysis', () => [new BundleAnalyzerPlugin()]),
     ],
   },
 }
