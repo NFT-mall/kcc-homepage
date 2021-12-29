@@ -317,6 +317,12 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
                 style={{ width: '40px' }}
                 onClick={() => {
                   setAmount(() => maxAvailableBalance)
+                  setTimeout(() => {
+                    const i = new BN(maxAvailableBalance)
+                      .multipliedBy(Math.pow(10, pairInfo?.srcChainInfo.decimals as any))
+                      .toString()
+                    checkAmountOverflow(i, maxAvailableBalance, pairInfo as any)
+                  })
                 }}
               >
                 <Max>{t(`Max`)} | </Max>

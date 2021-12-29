@@ -793,9 +793,9 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
               </Box>
             </>
           ) : (
-            <Row style={{ width: '100%' }}>
+            <Row style={{ width: 'auto' }}>
               <ReceiveText style={{ width: 'auto' }}>{t(`You will receive`)}&nbsp;</ReceiveText>
-              <ReceiveAmountText>
+              <ReceiveAmountText style={{ width: 'auto' }}>
                 {` ≈ ${Boolean(amount) ? amount : 0} ${currentCurrency?.symbol.toUpperCase()}`}
               </ReceiveAmountText>
             </Row>
