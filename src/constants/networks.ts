@@ -62,7 +62,7 @@ export const MAIN_NETWORKS = {
     symbol: 'MATIC',
     browser: 'https://polygonscan.com/',
     logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-137.png',
-    bridgeCoreAddress: '0x0734ce7Df4aEa88ce7fA6AD88bd2EB8d933ee319',
+    bridgeCoreAddress: '0xe61dd9cA7364225aFBFB79e15AD33864424e6aE4',
     standard: 'ERC20',
   },
 }
