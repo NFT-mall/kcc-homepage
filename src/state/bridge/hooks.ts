@@ -76,6 +76,7 @@ export function useTokenSupporChain() {
       }
       const srcChainInfo = chain.srcChainInfo
       const distChainInfo = chain.dstChainInfo
+      console.log('state.bridge.currentCurrency?.symbol', state.bridge.currentCurrency?.symbol)
       if (
         srcChainInfo.currency === state.bridge.currentCurrency?.symbol && // chain
         !srcChainIds.includes(srcChainInfo.chainId)
@@ -90,8 +91,8 @@ export function useTokenSupporChain() {
       }
     }
 
-    console.log('srcChainIds', srcChainIds)
-    console.log('distChainIds', distChainIds)
+    // console.log('srcChainIds', srcChainIds)
+    // console.log('distChainIds', distChainIds)
     return { srcChainIds, distChainIds }
   })
 }

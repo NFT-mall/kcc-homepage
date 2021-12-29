@@ -52,6 +52,19 @@ export const MAIN_NETWORKS = {
     bridgeCoreAddress: '0x76D1E324757d7E6765df1EcFD6Ba6F20Ca04BB93',
     standard: 'BEP20',
   },
+  137: {
+    name: 'Polygon',
+    fullName: 'Polygon Mainnet Network',
+    abbr: 'Polygon',
+    rpc: 'https://polygon-rpc.com',
+    chain_id: 137,
+    decimals: 18,
+    symbol: 'MATIC',
+    browser: 'https://polygonscan.com/',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-137.png',
+    bridgeCoreAddress: '0xe61dd9cA7364225aFBFB79e15AD33864424e6aE4',
+    standard: 'ERC20',
+  },
 }
 
 export const TEST_NETWORKS = {
@@ -94,6 +107,19 @@ export const TEST_NETWORKS = {
     logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-97.png',
     bridgeCoreAddress: '0x0734ce7Df4aEa88ce7fA6AD88bd2EB8d933ee319',
     standard: 'BEP20',
+  },
+  80001: {
+    name: 'Polygon Testnet',
+    fullName: 'Polygon Testnet Network',
+    abbr: 'Polygon-TEST',
+    rpc: 'https://matic-mumbai.chainstacklabs.com',
+    chain_id: 80001,
+    decimals: 18,
+    symbol: 'MATIC',
+    browser: 'https://mumbai.polygonscan.com',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-137.png',
+    bridgeCoreAddress: '0x5e1cB1f92861F321FC363e890706dd86a4d3Fa24',
+    standard: 'ERC20',
   },
 }
 

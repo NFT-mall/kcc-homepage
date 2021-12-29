@@ -104,7 +104,7 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
       : pairInfo?.srcChainInfo.decimals
   }, [pairInfo?.srcChainInfo.decimals, pairInfo?.dstChainInfo.decimals])
 
-  const maxAvailable = React.useMemo(() => {
+  React.useMemo(() => {
     async function getAvailable() {
       if (!pairInfo) return
       if (pairInfo.srcChainInfo.tag !== 0) {
@@ -132,7 +132,6 @@ const AmountInput: React.FunctionComponent<AmountInputProps> = ({
 
   const isMax = React.useMemo(() => {
     if (!amount) return false
-    console.log('maxAvailable', maxAvailable)
     return maxAvailableBalance === amount
   }, [amount, maxAvailableBalance, pairInfo])
 

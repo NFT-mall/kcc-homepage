@@ -167,10 +167,8 @@ const BridgeDetailPage: React.FunctionComponent<BridgeDetailPageProps> = (props)
   const [percent2, setPercent2] = React.useState<number>(0)
   const [statusText2, setStatusText2] = React.useState<string>('')
 
-  const query = useQuery()
-
-  const page = query.get('page')
-  const queryOrder = JSON.parse(Base64.decode(query.get('o')))
+  const page = localStorage.getItem('DETAIL_CURRENTPAGE')
+  const queryOrder = JSON.parse(Base64.decode(localStorage.getItem('DETAIL_ORDER')))
   const [order, setOrder] = React.useState<any>(queryOrder)
 
   const history = useHistory()
@@ -235,7 +233,7 @@ const BridgeDetailPage: React.FunctionComponent<BridgeDetailPageProps> = (props)
     console.log('hash', hash)
     let localOrder: any = null
     try {
-      localOrder = JSON.parse(Base64.decode(query.get('o')))
+      localOrder = queryOrder
     } catch {
       console.log('parse url error')
       history.push(`/bridge/list?page=${page ?? 1}`)
