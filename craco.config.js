@@ -25,7 +25,7 @@ module.exports = {
   webpack: {
     alias: {
       'bn.js': path.resolve(process.cwd(), 'node_modules', 'bn.js'),
-      'sha3.js': path.resolve(process.cwd(), 'node_modules', 'sha3.js'),
+      'sha3.js': path.resolve(process.cwd(), 'node_modules', 'js-sha3.js'),
       'bignumber.js': path.resolve(process.cwd(), 'node_modules', 'bignumber.js'),
     },
     configure: (config) => {
@@ -43,12 +43,12 @@ module.exports = {
             bn: {
               name: 'bn.js',
               test: /[\\/]node_modules[\\/][a-zA-Z]*bn.js[\\/]/,
-              priority: 70,
+              priority: 100,
             },
             bignumber: {
               name: 'bignumber.js',
               test: /[\\/]node_modules[\\/]bignumber.js[\\/]/,
-              priority: 60,
+              priority: 100,
             },
             styledcomponent: {
               name: 'styled-component',
@@ -105,6 +105,11 @@ module.exports = {
               test: /[\\/]node_modules[\\/]idna-uts46-hx[\\/]/,
               priority: 90,
             },
+            sha3: {
+              name: 'sha3',
+              test: /[\\/]node_modules[\\/]js-sha3[\\/]/,
+              priority: 90,
+            },
           },
         },
       }
@@ -130,7 +135,7 @@ module.exports = {
         ],
         []
       ),
-      ...when(process.env.NETWORK === 'analysis', () => [new BundleAnalyzerPlugin()]),
+      ...when(process.env.NETWORK === 'analysis', () => [new BundleAnalyzerPlugin()], []),
     ],
   },
 }
