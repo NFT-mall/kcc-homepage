@@ -65,6 +65,19 @@ export const MAIN_NETWORKS = {
     bridgeCoreAddress: '0xe61dd9cA7364225aFBFB79e15AD33864424e6aE4',
     standard: 'ERC20',
   },
+  43114: {
+    name: 'Avalanche Testnet',
+    fullName: 'Avalanche Testnet Network',
+    abbr: 'Avalanche-TEST',
+    rpc: 'https://api.avax-test.network/ext/bc/C/rpc',
+    chain_id: 43114,
+    decimals: 18,
+    symbol: 'AVAX',
+    browser: 'https://testnet.snowtrace.io',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-43114.png',
+    bridgeCoreAddress: '0x5e1cB1f92861F321FC363e890706dd86a4d3Fa24',
+    standard: 'ERC20',
+  },
 }
 
 export const TEST_NETWORKS = {
@@ -107,6 +120,19 @@ export const TEST_NETWORKS = {
     logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-97.png',
     bridgeCoreAddress: '0x0734ce7Df4aEa88ce7fA6AD88bd2EB8d933ee319',
     standard: 'BEP20',
+  },
+  43113: {
+    name: 'Avalanche Testnet',
+    fullName: 'Avalanche Testnet Network',
+    abbr: 'Avalanche-TEST',
+    rpc: 'https://api.avax-test.network/ext/bc/C/rpc',
+    chain_id: 43113,
+    decimals: 18,
+    symbol: 'AVAX',
+    browser: 'https://testnet.snowtrace.io',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-43113.png',
+    bridgeCoreAddress: '0x0734ce7Df4aEa88ce7fA6AD88bd2EB8d933ee319',
+    standard: 'ERC20',
   },
   80001: {
     name: 'Polygon Testnet',
