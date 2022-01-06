@@ -365,6 +365,8 @@ const BridgeListPage: React.FunctionComponent<BridgeListPageProps> = () => {
   }
 
   const list = historyList.map((transaction, index) => {
+    console.log('transaction', transaction)
+
     const no = (currentPage - 1) * 4 + index + 1
 
     let selectedPairInfo, srcNetworkInfo, distNetworkInfo
