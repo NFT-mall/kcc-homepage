@@ -604,7 +604,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
           setCheckList((list) => {
             return { ...list, approve: true }
           })
-          generateOrderAndConfirm()
+          // generateOrderAndConfirm()
           if (bridgeLoaing.visible) {
             dispatch(updateBridgeLoading({ visible: true, status: 1 }))
             setTimeout(() => {
