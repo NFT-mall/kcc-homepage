@@ -68,7 +68,7 @@ export const MAIN_NETWORKS = {
   43114: {
     name: 'Avalanche Mainnet',
     fullName: 'Avalanche Mainnet Network',
-    abbr: 'Avalanche-Mainnet',
+    abbr: 'Avalanche',
     rpc: 'https://api.avax.network/ext/bc/C/rpc',
     chain_id: 43114,
     decimals: 18,
