@@ -578,6 +578,7 @@ const BridgeTransferPage: React.FunctionComponent<BridgeTransferPageProps> = () 
   }
 
   const generateOrderAndConfirm = () => {
+    // TODO need to check checkList first
     generateOrder()
     history.push('/bridge/confirm')
   }
