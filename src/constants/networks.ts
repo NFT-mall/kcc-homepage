@@ -83,7 +83,7 @@ export const MAIN_NETWORKS = {
     fullName: 'Fantom Opera Network',
     abbr: 'Fantom',
     rpc: 'https://rpc.ftm.tools',
-    chain_id: 4002,
+    chain_id: 250,
     decimals: 18,
     symbol: 'FTM',
     browser: 'https://ftmscan.com',
