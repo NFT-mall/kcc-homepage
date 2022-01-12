@@ -87,13 +87,26 @@ export const MAIN_NETWORKS = {
     decimals: 18,
     symbol: 'FTM',
     browser: 'https://ftmscan.com',
-    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-250.png',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/ftm.png',
     bridgeCoreAddress: '0xe61dd9cA7364225aFBFB79e15AD33864424e6aE4',
     standard: 'ERC20',
   },
 }
 
 export const TEST_NETWORKS = {
+  0: {
+    name: 'No Available Network',
+    fullName: 'No Available Network',
+    abbr: '',
+    rpc: '',
+    chain_id: 0,
+    symbol: '0',
+    browser: '',
+    decimals: 0,
+    logo: '',
+    bridgeCoreAddress: '',
+    standard: '',
+  },
   4: {
     name: 'Rinkeby',
     abbr: 'Rinkeby',
@@ -169,14 +182,13 @@ export const TEST_NETWORKS = {
     decimals: 18,
     symbol: 'FTM',
     browser: 'https://testnet.ftmscan.com',
-    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/chain-4002.png',
-    bridgeCoreAddress: '0x5e1cB1f92861F321FC363e890706dd86a4d3Fa24',
+    logo: 'https://cdn.jsdelivr.net/gh/kucoin-community-chain/tokens-info@main/icons/ftm.png',
+    bridgeCoreAddress: '0x0734ce7Df4aEa88ce7fA6AD88bd2EB8d933ee319',
     standard: 'ERC20',
   },
 }
 
-export const networks =
-  process.env.REACT_APP_NETWORK === 'main' ? MAIN_NETWORKS : { ...MAIN_NETWORKS, ...TEST_NETWORKS }
+export const networks = process.env.REACT_APP_NETWORK === 'main' ? MAIN_NETWORKS : TEST_NETWORKS
 
 export const KCC_NETWORK_IDS = [322, 321]
 
